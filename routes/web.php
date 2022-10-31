@@ -124,6 +124,7 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     Route::post('events/media', 'EventController@storeMedia')->name('events.storeMedia');
     Route::post('events/ckmedia', 'EventController@storeCKEditorImages')->name('events.storeCKEditorImages');
     Route::resource('events', 'EventController');
+    Route::get('events2', 'EventController@test')->name('events.test');
 
     Route::get('frontend/profile', 'ProfileController@index')->name('profile.index');
     Route::post('frontend/profile', 'ProfileController@update')->name('profile.update');
