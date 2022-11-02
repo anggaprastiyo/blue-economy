@@ -36,13 +36,7 @@ class EventController extends Controller
                 $deleteGate = 'event_delete';
                 $crudRoutePart = 'events';
 
-                return view('partials.datatablesActions', compact(
-                'viewGate',
-                'editGate',
-                'deleteGate',
-                'crudRoutePart',
-                'row'
-            ));
+                return view('partials.datatablesActions', compact('viewGate', 'editGate', 'deleteGate', 'crudRoutePart', 'row'));
             });
 
             $table->editColumn('id', function ($row) {
@@ -54,11 +48,7 @@ class EventController extends Controller
 
             $table->editColumn('featured_image', function ($row) {
                 if ($photo = $row->featured_image) {
-                    return sprintf(
-        '<a href="%s" target="_blank"><img src="%s" width="50px" height="50px"></a>',
-        $photo->url,
-        $photo->thumbnail
-    );
+                    return sprintf('<a href="%s" target="_blank"><img src="%s" width="50px" height="50px"></a>', $photo->url, $photo->thumbnail);
                 }
 
                 return '';
@@ -89,7 +79,7 @@ class EventController extends Controller
         $event = Event::create($request->all());
 
         if ($request->input('featured_image', false)) {
-            $event->addMedia(storage_path('tmp/uploads/' . basename($request->input('featured_image'))))->toMediaCollection('featured_image');
+            $event->addMedia(storage_path('tmp/uploads/'.basename($request->input('featured_image'))))->toMediaCollection('featured_image');
         }
 
         if ($media = $request->input('ck-media', false)) {
@@ -113,11 +103,11 @@ class EventController extends Controller
         $event->update($request->all());
 
         if ($request->input('featured_image', false)) {
-            if (!$event->featured_image || $request->input('featured_image') !== $event->featured_image->file_name) {
+            if (! $event->featured_image || $request->input('featured_image') !== $event->featured_image->file_name) {
                 if ($event->featured_image) {
                     $event->featured_image->delete();
                 }
-                $event->addMedia(storage_path('tmp/uploads/' . basename($request->input('featured_image'))))->toMediaCollection('featured_image');
+                $event->addMedia(storage_path('tmp/uploads/'.basename($request->input('featured_image'))))->toMediaCollection('featured_image');
             }
         } elseif ($event->featured_image) {
             $event->featured_image->delete();
@@ -155,10 +145,10 @@ class EventController extends Controller
     {
         abort_if(Gate::denies('event_create') && Gate::denies('event_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $model         = new Event();
-        $model->id     = $request->input('crud_id', 0);
+        $model = new Event();
+        $model->id = $request->input('crud_id', 0);
         $model->exists = true;
-        $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
+        $media = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
     }
