@@ -29,6 +29,21 @@ class EventController extends Controller
         return view('frontend.events.index', compact('events', 'users'));
     }
 
+    public function detail()
+    {
+        return view('frontend.events.detail');
+    }
+
+    public function all()
+    {
+        return view('frontend.events.list_all');
+    }
+
+    public function categoryAll()
+    {
+        return view('frontend.events.category_all');
+    }
+
     public function test()
     {
         abort_if(Gate::denies('event_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');

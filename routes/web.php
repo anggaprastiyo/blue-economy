@@ -41,6 +41,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('content-pages/media', 'ContentPageController@storeMedia')->name('content-pages.storeMedia');
     Route::post('content-pages/ckmedia', 'ContentPageController@storeCKEditorImages')->name('content-pages.storeCKEditorImages');
     Route::resource('content-pages', 'ContentPageController');
+    Route::get('articles/detail', 'ContentPageController@detail')->name('articles.detail');
+    Route::get('articles/all', 'ContentPageController@all')->name('articles.all');
+    Route::get('articles/category-all', 'ContentPageController@categoryAll')->name('articles.category-all');
 
     // Faq Category
     Route::delete('faq-categories/destroy', 'FaqCategoryController@massDestroy')->name('faq-categories.massDestroy');
@@ -112,6 +115,9 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     Route::post('content-pages/media', 'ContentPageController@storeMedia')->name('content-pages.storeMedia');
     Route::post('content-pages/ckmedia', 'ContentPageController@storeCKEditorImages')->name('content-pages.storeCKEditorImages');
     Route::resource('content-pages', 'ContentPageController');
+    Route::get('articles/detail', 'ContentPageController@detail')->name('articles.detail');
+    Route::get('articles/all', 'ContentPageController@all')->name('articles.all');
+    Route::get('articles/category-all', 'ContentPageController@categoryAll')->name('articles.category-all');
 
     // Faq Category
     Route::delete('faq-categories/destroy', 'FaqCategoryController@massDestroy')->name('faq-categories.massDestroy');
@@ -127,6 +133,9 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     Route::post('events/ckmedia', 'EventController@storeCKEditorImages')->name('events.storeCKEditorImages');
     Route::resource('events', 'EventController');
     Route::get('events2', 'EventController@test')->name('events.test');
+    Route::get('events-page/detail', 'EventController@detail')->name('events-page.detail');
+    Route::get('events-page/all', 'EventController@all')->name('events-page.all');
+    Route::get('events-page/category-all', 'EventController@categoryAll')->name('events-page.category-all');
 
     Route::get('frontend/profile', 'ProfileController@index')->name('profile.index');
     Route::post('frontend/profile', 'ProfileController@update')->name('profile.update');

@@ -35,6 +35,21 @@ class ContentPageController extends Controller
         return view('frontend.contentPages.index', compact('contentPages', 'content_categories', 'content_tags', 'users'));
     }
 
+    public function detail()
+    {
+        return view('frontend.contentPages.detail');
+    }
+
+    public function all()
+    {
+        return view('frontend.contentPages.list_all');
+    }
+
+    public function categoryAll()
+    {
+        return view('frontend.contentPages.category_all');
+    }
+
     public function create()
     {
         abort_if(Gate::denies('content_page_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');

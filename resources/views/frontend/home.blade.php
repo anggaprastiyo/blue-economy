@@ -131,16 +131,17 @@
                     {!! $event->detail !!}
                   </p>
                   <ul>
-                    <li><i class="ri-check-double-line"></i> {{$event->date}}.</li>
-                    <li><i class="ri-check-double-line"></i> {{$event->location}}.</li>
+                    <li><i class="ri-time-line"></i> {{$event->date}}.</li>
+                    <li><i class="ri-map-pin-line"></i> {{$event->location}}.</li>
                     <li><i class="ri-check-double-line"></i></li>
                   </ul>
                   <div style="text-align:center">
-                    <a href="#about" class="get-started-btn scrollto" style="margin: 10px 0px 0px 0px;">Go to Event</a>
+                    <a href="{{url('events-page/detail')}}" class="get-started-btn scrollto" style="margin: 10px 0px 0px 0px;">Go to Event</a>
                   </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-                  <img src="{{$event->featured_image->url}}" alt="" class="img-fluid">
+                  <img src="assets/img/tabs-1.jpg" alt="" class="img-fluid">
+                  <!-- <img src="event->featured_image->url" alt="" class="img-fluid"> -->
                 </div>
               </div>
             </div>
@@ -155,7 +156,7 @@
     <div class="container" data-aos="fade-up">
 
       <div class="section-title">
-        <h2>Article</h2>
+        <h2>Articles</h2>
         <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p>
       </div>
 
@@ -166,6 +167,7 @@
             <li data-filter=".filter-app">App</li>
             <li data-filter=".filter-card">Card</li>
             <li data-filter=".filter-web">Web</li>
+            <li style="background:#fff"><a href="{{url('articles/all')}}" style="color:#444;" >Show More</a></li>
           </ul>
         </div>
       </div>
@@ -192,7 +194,7 @@
             <p>by {{$article->Name}} - {{$article->created_at}}</p>
             <p>{{substr($article->page_text, 0, 150)}}...</p>
             <div style="text-align:center">
-              <a href="#about" class="get-started-btn scrollto" style="margin: 10px 0px 0px 0px;">Read more</a>
+              <a href="{{url('articles/detail')}}" class="get-started-btn scrollto" style="margin: 10px 0px 0px 0px;">Read more</a>
             </div>
           </div>
               <?php
