@@ -140,8 +140,8 @@
                   </div>
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-                  <img src="assets/img/tabs-1.jpg" alt="" class="img-fluid">
-                  <!-- <img src="event->featured_image->url" alt="" class="img-fluid"> -->
+{{--                  <img src="assets/img/tabs-1.jpg" alt="" class="img-fluid">--}}
+                  <img src="event->featured_image->url" alt="" class="img-fluid">
                 </div>
               </div>
             </div>
