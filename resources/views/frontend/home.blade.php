@@ -132,7 +132,7 @@
                   </p>
                   <ul>
                     <li><i class="ri-time-line"></i> {{$event->date}}.</li>
-                    <li><i class="ri-map-pin-line"></i> {{$event->location}}.</li>
+                    <li><i class="ri-map-pin-line"></i> {!! $event->location !!}.</li>
                     <li><i class="ri-check-double-line"></i></li>
                   </ul>
                   <div style="text-align:center">
@@ -141,7 +141,7 @@
                 </div>
                 <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
 {{--                  <img src="assets/img/tabs-1.jpg" alt="" class="img-fluid">--}}
-                  <img src="event->featured_image->url" alt="" class="img-fluid">
+                  <img src="{{$event->featured_image->url}}" alt="" class="img-fluid">
                 </div>
               </div>
             </div>
