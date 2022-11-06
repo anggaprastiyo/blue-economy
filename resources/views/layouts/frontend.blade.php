@@ -127,6 +127,11 @@
                                             {{ trans('cruds.event.title') }}
                                         </a>
                                     @endcan
+                                    @can('comment_access')
+                                        <a class="dropdown-item ml-3" href="{{ route('frontend.comments.index') }}">
+                                            {{ trans('cruds.comment.title') }}
+                                        </a>
+                                    @endcan
                                     @can('faq_management_access')
                                         <a class="dropdown-item disabled" href="#">
                                             {{ trans('cruds.faqManagement.title') }}
