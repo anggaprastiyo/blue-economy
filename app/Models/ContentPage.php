@@ -54,6 +54,11 @@ class ContentPage extends Model implements HasMedia
         $this->addMediaConversion('preview')->fit('crop', 120, 120);
     }
 
+    public function contentPageComments()
+    {
+        return $this->hasMany(Comment::class, 'content_page_id', 'id');
+    }
+
     public function categories()
     {
         return $this->belongsToMany(ContentCategory::class);
