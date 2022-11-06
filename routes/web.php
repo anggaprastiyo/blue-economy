@@ -1,11 +1,14 @@
 <?php
 
-Route::view('/', 'welcome');
+// welcome page
+Route::get('/', 'Frontend\HomeController@index')->name('home');
+
 Route::get('userVerification/{token}', 'UserVerificationController@approve')->name('userVerification');
 Auth::routes();
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth', '2fa', 'admin']], function () {
     Route::get('/', 'HomeController@index')->name('home');
+
     // Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
     Route::resource('permissions', 'PermissionsController');
@@ -38,6 +41,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('content-pages/media', 'ContentPageController@storeMedia')->name('content-pages.storeMedia');
     Route::post('content-pages/ckmedia', 'ContentPageController@storeCKEditorImages')->name('content-pages.storeCKEditorImages');
     Route::resource('content-pages', 'ContentPageController');
+    Route::get('articles/detail', 'ContentPageController@detail')->name('articles.detail');
+    Route::get('articles/all', 'ContentPageController@all')->name('articles.all');
+    Route::get('articles/category-all', 'ContentPageController@categoryAll')->name('articles.category-all');
 
     // Faq Category
     Route::delete('faq-categories/destroy', 'FaqCategoryController@massDestroy')->name('faq-categories.massDestroy');
@@ -81,7 +87,6 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
     }
 });
 Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['auth', '2fa']], function () {
-    Route::get('/home', 'HomeController@index')->name('home');
 
     // Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
@@ -114,6 +119,9 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     Route::post('content-pages/media', 'ContentPageController@storeMedia')->name('content-pages.storeMedia');
     Route::post('content-pages/ckmedia', 'ContentPageController@storeCKEditorImages')->name('content-pages.storeCKEditorImages');
     Route::resource('content-pages', 'ContentPageController');
+    Route::get('articles/detail', 'ContentPageController@detail')->name('articles.detail');
+    Route::get('articles/all', 'ContentPageController@all')->name('articles.all');
+    Route::get('articles/category-all', 'ContentPageController@categoryAll')->name('articles.category-all');
 
     // Faq Category
     Route::delete('faq-categories/destroy', 'FaqCategoryController@massDestroy')->name('faq-categories.massDestroy');
@@ -128,6 +136,10 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     Route::post('events/media', 'EventController@storeMedia')->name('events.storeMedia');
     Route::post('events/ckmedia', 'EventController@storeCKEditorImages')->name('events.storeCKEditorImages');
     Route::resource('events', 'EventController');
+    Route::get('events2', 'EventController@test')->name('events.test');
+    Route::get('events-page/detail', 'EventController@detail')->name('events-page.detail');
+    Route::get('events-page/all', 'EventController@all')->name('events-page.all');
+    Route::get('events-page/category-all', 'EventController@categoryAll')->name('events-page.category-all');
 
     // Comment
     Route::delete('comments/destroy', 'CommentController@massDestroy')->name('comments.massDestroy');

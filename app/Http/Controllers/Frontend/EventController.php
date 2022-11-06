@@ -29,6 +29,32 @@ class EventController extends Controller
         return view('frontend.events.index', compact('events', 'users'));
     }
 
+    public function detail()
+    {
+        return view('frontend.events.detail');
+    }
+
+    public function all()
+    {
+        return view('frontend.events.list_all');
+    }
+
+    public function categoryAll()
+    {
+        return view('frontend.events.category_all');
+    }
+
+    public function test()
+    {
+        abort_if(Gate::denies('event_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $events = Event::with(['created_by', 'media'])->get();
+
+        $users = User::get();
+
+        return view('frontend.events.index2', compact('events', 'users'));
+    }
+
     public function create()
     {
         abort_if(Gate::denies('event_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
