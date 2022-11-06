@@ -62,6 +62,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('events/ckmedia', 'EventController@storeCKEditorImages')->name('events.storeCKEditorImages');
     Route::resource('events', 'EventController');
 
+    // Comment
+    Route::delete('comments/destroy', 'CommentController@massDestroy')->name('comments.massDestroy');
+    Route::resource('comments', 'CommentController');
+
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');
     Route::post('messenger', 'MessengerController@storeTopic')->name('messenger.storeTopic');
@@ -136,6 +140,10 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     Route::get('events-page/detail', 'EventController@detail')->name('events-page.detail');
     Route::get('events-page/all', 'EventController@all')->name('events-page.all');
     Route::get('events-page/category-all', 'EventController@categoryAll')->name('events-page.category-all');
+
+    // Comment
+    Route::delete('comments/destroy', 'CommentController@massDestroy')->name('comments.massDestroy');
+    Route::resource('comments', 'CommentController');
 
     Route::get('frontend/profile', 'ProfileController@index')->name('profile.index');
     Route::post('frontend/profile', 'ProfileController@update')->name('profile.update');
