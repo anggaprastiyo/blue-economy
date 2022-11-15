@@ -2,9 +2,9 @@
 
 @section('content')
   <!-- ======= Hero Section ======= -->
-  <section id="hero" class="d-flex align-items-center">
+  <!-- <section id="hero" class="d-flex align-items-center"> -->
 
-    <div class="container" data-aos="zoom-out" data-aos-delay="100">
+    <!-- <div class="container" data-aos="zoom-out" data-aos-delay="100">
       <div class="row">
         <div class="col-xl-6">
           <h1>Bettter digital experience with Presento</h1>
@@ -12,10 +12,43 @@
           <a href="#about" class="btn-get-started scrollto">Get Started</a>
         </div>
       </div>
+    </div> -->
+  <!-- </section>End Hero -->
+
+
+  <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active" style="background-image: url('https://source.unsplash.com/LAaSoL0LrYs/1920x1080')">
+          <div class="carousel-caption">
+            <!-- <h5>First slide label</h5>
+            <p>Some representative placeholder content for the first slide.</p> -->
+          </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('https://source.unsplash.com/bF2vsubyHcQ/1920x1080')">
+          <div class="carousel-caption">
+            <!-- <h5>Second slide label</h5>
+            <p>Some representative placeholder content for the second slide.</p> -->
+          </div>
+        </div>
+        <div class="carousel-item" style="background-image: url('https://source.unsplash.com/szFUQoyvrxM/1920x1080')">
+          <div class="carousel-caption">
+            <!-- <h5>Third slide label</h5>
+            <p>Some representative placeholder content for the third slide.</p> -->
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      </button>
     </div>
-
-  </section><!-- End Hero -->
-
   <!-- ======= Clients Section ======= -->
   <section id="clients" class="clients">
     <div class="container" data-aos="zoom-in">
@@ -61,16 +94,6 @@
         <div class="col-xl-7 d-flex align-items-stretch">
           <div class="icon-boxes d-flex flex-column justify-content-center">
             <div class="row">
-              <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
-                <i class="bx bx-receipt"></i>
-                <h4>Resource Library</h4>
-                <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
-              </div>
-              <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
-                <i class="bx bx-cube-alt"></i>
-                <h4>Groups</h4>
-                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
-              </div>
               <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
                 <i class="bx bx-images"></i>
                 <h4>Discussions</h4>
@@ -80,6 +103,16 @@
                 <i class="bx bx-shield"></i>
                 <h4>Events</h4>
                 <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
+              </div>
+              <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
+                <i class="bx bx-cube-alt"></i>
+                <h4>Articles</h4>
+                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+              </div>
+              <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
+                <i class="bx bx-receipt"></i>
+                <h4>Resource Library</h4>
+                <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
               </div>
             </div>
           </div><!-- End .content-->
@@ -96,7 +129,8 @@
         <h2>Our location</h2>
         <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
       </div>
-      <img src="{{ asset('assets/img/map_xl.jpeg') }}"/>
+      <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1yWpsj6aBnPLYZCJbYGCOfzUG5MjWI8k&ehbc=2E312F" id="our_location"></iframe>
+      <!-- <img src="{{ asset('assets/img/map_xl.jpeg') }}"/> -->
     </div>
   </section><!-- End Clients Section -->
 
@@ -109,44 +143,88 @@
         <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
       </div>
 
-      <ul class="nav nav-tabs row d-flex">
-        @foreach($events as $event)
-          <li class="nav-item col-3">
-            <a class="nav-link @if($loop->iteration == 1) active @endif show" data-bs-toggle="tab" data-bs-target="#tab-{{$loop->iteration}}">
-              <i class="ri-store-line"></i>
-              <h4 class="d-none d-lg-block">{{$event->title}}</h4>
-            </a>
-          </li>
-        @endforeach
-      </ul>
-
-      <div class="tab-content">
+      <div id="carouselId" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselId" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselId" data-slide-to="1"></li>
+            <li data-target="#carouselId" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner row w-100 mx-auto">
+          
         @if(isset($events))
           @foreach($events as $event)
-            <div class="tab-pane @if($loop->iteration == 1) active @endif show" id="tab-{{$loop->iteration}}">
-              <div class="row">
-                <div class="col-lg-6 order-2 order-lg-1 mt-3 mt-lg-0" data-aos="fade-up" data-aos-delay="100">
-                  <h3>{{$event->title}}</h3>
-                  <p class="fst-italic">
-                    {!! $event->detail !!}
-                  </p>
-                  <ul>
-                    <li><i class="ri-time-line"></i> {{$event->date}}.</li>
-                    <li><i class="ri-map-pin-line"></i> {!! $event->location !!}.</li>
-                    <li><i class="ri-check-double-line"></i></li>
-                  </ul>
-                  <div style="text-align:center">
-                    <a href="{{url('events-page/detail')}}" class="get-started-btn scrollto" style="margin: 10px 0px 0px 0px;">Go to Event</a>
-                  </div>
+            <div class="carousel-item active col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="assets/img/tabs-1.jpg" alt="">
+                    <div class="card-body">
+                        <h3>{{$event->title}}</h3>
+                      <p class="fst-italic">
+                        <?php echo substr($event->detail, 0, 30).'...'; ?>
+                      </p>
+                      <ul>
+                        <li><i class="ri-time-line"></i> {{$event->date}}.</li>
+                        <li><i class="ri-map-pin-line"></i> {!! $event->location !!}.</li>
+                      </ul>
+                    </div>
                 </div>
-                <div class="col-lg-6 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-{{--                  <img src="assets/img/tabs-1.jpg" alt="" class="img-fluid">--}}
-                  <img src="{{$event->featured_image->url}}" alt="" class="img-fluid">
-                </div>
-              </div>
             </div>
-          @endforeach
+          
+            @endforeach
         @endif
+            <div class="carousel-item col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="assets/img/tabs-2.jpg" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">Title</h4>
+                        <p class="card-text">Text</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="assets/img/tabs-3.jpg" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">Title</h4>
+                        <p class="card-text">Text</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="assets/img/tabs-1.jpg" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">Title</h4>
+                        <p class="card-text">Text</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="assets/img/tabs-2.jpg" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">Title</h4>
+                        <p class="card-text">Text</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item col-md-4">
+                <div class="card">
+                    <img class="card-img-top" src="assets/img/tabs-3.jpg" alt="">
+                    <div class="card-body">
+                        <h4 class="card-title">Title</h4>
+                        <p class="card-text">Text</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
       </div>
     </div>
   </section><!-- End Tabs Section -->

@@ -1,15 +1,18 @@
 @extends('layouts.frontend')
+
 @section('content')
-<section class="bg0">
-    <div class="section-title">
-        <h2>Events</h2>
-    <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
-    </div>
-    <div class="container">
+<section>
+    <div class="container" style="margin-top: 70px">
+        <div class="section-title">
+            <h2>All Discussions</h2>
+        <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
+        </div>
+        <div class="row" id="discussions">
+        <div class="container">
         <div class="row m-rl--1">
             <div class="col-md-6 p-rl-1 p-b-2">
                 <div class="bg-img1 size-a-3 how1 pos-relative" style="background-image: url({{asset('assets/img/mag/post-01.jpg')}});">
-                    <a href="{{url('articles/detail')}}" class="dis-block how1-child1 trans-03"></a>
+                    <a href="{{url('discussions/detail')}}" ></a>
 
                     <div class="flex-col-e-s s-full p-rl-25 p-tb-20">
                         <a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
@@ -17,7 +20,7 @@
                         </a>
 
                         <h3 class="how1-child2 m-t-14 m-b-10">
-                            <a href="{{url('articles/detail')}}" class="how-txt1 size-a-6 f1-l-1 cl0 hov-cl10 trans-03">
+                            <a href="{{url('discussions/detail')}}" class="how-txt1 size-a-6 f1-l-1 cl0 hov-cl10 trans-03">
                                 Microsoft quisque at ipsum vel orci eleifend ultrices
                             </a>
                         </h3>
@@ -43,7 +46,7 @@
                 <div class="row m-rl--1">
                     <div class="col-12 p-rl-1 p-b-2">
                         <div class="bg-img1 size-a-4 how1 pos-relative" style="background-image: url({{asset('assets/img/mag/post-02.jpg')}});">
-                            <a href="{{url('articles/detail')}}" class="dis-block how1-child1 trans-03"></a>
+                            <a href="{{url('discussions/detail')}}" ></a>
 
                             <div class="flex-col-e-s s-full p-rl-25 p-tb-24">
                                 <a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
@@ -51,7 +54,7 @@
                                 </a>
 
                                 <h3 class="how1-child2 m-t-14">
-                                    <a href="{{url('articles/detail')}}" class="how-txt1 size-a-7 f1-l-2 cl0 hov-cl10 trans-03">
+                                    <a href="{{url('discussions/detail')}}">
                                         London ipsum dolor sit amet, consectetur adipiscing elit.
                                     </a>
                                 </h3>
@@ -61,7 +64,7 @@
 
                     <div class="col-sm-6 p-rl-1 p-b-2">
                         <div class="bg-img1 size-a-5 how1 pos-relative" style="background-image: url({{asset('assets/img/mag/post-03.jpg')}});">
-                            <a href="{{url('articles/detail')}}" class="dis-block how1-child1 trans-03"></a>
+                            <a href="{{url('discussions/detail')}}" ></a>
 
                             <div class="flex-col-e-s s-full p-rl-25 p-tb-20">
                                 <a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
@@ -69,7 +72,7 @@
                                 </a>
 
                                 <h3 class="how1-child2 m-t-14">
-                                    <a href="{{url('articles/detail')}}" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
+                                    <a href="{{url('discussions/detail')}}" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
                                         Pellentesque dui nibh, pellen-tesque ut dapibus ut
                                     </a>
                                 </h3>
@@ -79,7 +82,7 @@
 
                     <div class="col-sm-6 p-rl-1 p-b-2">
                         <div class="bg-img1 size-a-5 how1 pos-relative" style="background-image: url({{asset('assets/img/mag/post-04.jpg')}});">
-                            <a href="{{url('articles/detail')}}" class="dis-block how1-child1 trans-03"></a>
+                            <a href="{{url('discussions/detail')}}" ></a>
 
                             <div class="flex-col-e-s s-full p-rl-25 p-tb-20">
                                 <a href="#" class="dis-block how1-child2 f1-s-2 cl0 bo-all-1 bocl0 hov-btn1 trans-03 p-rl-5 p-t-2">
@@ -87,7 +90,7 @@
                                 </a>
 
                                 <h3 class="how1-child2 m-t-14">
-                                    <a href="{{url('articles/detail')}}" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
+                                    <a href="{{url('discussions/detail')}}" class="how-txt1 size-h-1 f1-m-1 cl0 hov-cl10 trans-03">
                                         Motobike Vestibulum vene-natis purus nec nibh volutpat
                                     </a>
                                 </h3>
@@ -111,7 +114,7 @@
                         <div class="tab01-head how2 how2-cl6 bocl12 flex-s-c m-r-10 m-r-0-sr991">
                             <!-- Brand tab -->
                             <h3 class="f1-m-2 cl18 tab01-title">
-                                Events
+                                Discussions
                             </h3>
 
                             <!-- Nav tabs -->
@@ -156,185 +159,121 @@
                             <!-- - -->
                             <div class="tab-pane fade show active" id="tab1-1" role="tabpanel">
                                 <div class="row">
-                                    <div class="col-sm-6 p-r-25 p-r-15-sr991">
+                                    <div class="col-sm-12 p-r-25 p-r-15-sr991">
+                                        <a href="{{url('discussions/detail')}}" ></a>
                                         <!-- Item post -->	
-                                        <div class="m-b-30">
-                                            <a href="{{url('articles/detail')}}" class="wrap-pic-w hov1 trans-03">
-                                                <img src="{{asset('assets/img/mag/post-05.jpg')}}" alt="IMG">
-                                            </a>
-
-                                            <div class="p-t-20">
-                                                <h5 class="p-b-5">
-                                                    <a href="{{url('articles/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
-                                                        American live music lorem ipsum dolor sit amet consectetur 
-                                                    </a>
-                                                </h5>
-
-                                                <span class="cl8">
-                                                    <a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-                                                        Music
-                                                    </a>
-
-                                                    <span class="f1-s-3 m-rl-3">
-                                                        -
-                                                    </span>
-
-                                                    <span class="f1-s-3">
-                                                        Feb 18
-                                                    </span>
-                                                </span>
-                                            </div>
+                                        <div class="m-b-30 discussion-card">
+                                            <h3><a href="{{url('discussions/detail')}}">American live music lorem ipsum dolor sit amet consectetur</a> </h3>
+                                            <p class="fst-italic">
+                                            Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
+                                            </p>
+                                            <ul>
+                                                <li><i class="ri-heart-line"></i> 10 <i class="ri-discuss-line"></i> 100</li>
+                                            </ul>
                                         </div>
                                     </div>
-
-                                    <div class="col-sm-6 p-r-25 p-r-15-sr991">
+                                    <div class="col-sm-12 p-r-25 p-r-15-sr991">
+                                        <a href="{{url('discussions/detail')}}" ></a>
                                         <!-- Item post -->	
-                                        <div class="m-b-30">
-                                            <a href="{{url('articles/detail')}}" class="wrap-pic-w hov1 trans-03">
-                                                <img src="{{asset('assets/img/mag/post-05.jpg')}}" alt="IMG">
-                                            </a>
-
-                                            <div class="p-t-20">
-                                                <h5 class="p-b-5">
-                                                    <a href="{{url('articles/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
-                                                        American live music lorem ipsum dolor sit amet consectetur 
-                                                    </a>
-                                                </h5>
-
-                                                <span class="cl8">
-                                                    <a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-                                                        Music
-                                                    </a>
-
-                                                    <span class="f1-s-3 m-rl-3">
-                                                        -
-                                                    </span>
-
-                                                    <span class="f1-s-3">
-                                                        Feb 18
-                                                    </span>
-                                                </span>
-                                            </div>
+                                        <div class="m-b-30 discussion-card">
+                                            <h3><a href="{{url('discussions/detail')}}">American live music lorem ipsum dolor sit amet consectetur</a> </h3>
+                                            <p class="fst-italic">
+                                            Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
+                                            </p>
+                                            <ul>
+                                                <li><i class="ri-heart-line"></i> 10 <i class="ri-discuss-line"></i> 100</li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 p-r-25 p-r-15-sr991">
+                                    <div class="col-sm-12 p-r-25 p-r-15-sr991">
+                                        <a href="{{url('discussions/detail')}}" ></a>
                                         <!-- Item post -->	
-                                        <div class="m-b-30">
-                                            <a href="{{url('articles/detail')}}" class="wrap-pic-w hov1 trans-03">
-                                                <img src="{{asset('assets/img/mag/post-05.jpg')}}" alt="IMG">
-                                            </a>
-
-                                            <div class="p-t-20">
-                                                <h5 class="p-b-5">
-                                                    <a href="{{url('articles/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
-                                                        American live music lorem ipsum dolor sit amet consectetur 
-                                                    </a>
-                                                </h5>
-
-                                                <span class="cl8">
-                                                    <a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-                                                        Music
-                                                    </a>
-
-                                                    <span class="f1-s-3 m-rl-3">
-                                                        -
-                                                    </span>
-
-                                                    <span class="f1-s-3">
-                                                        Feb 18
-                                                    </span>
-                                                </span>
-                                            </div>
+                                        <div class="m-b-30 discussion-card">
+                                            <h3><a href="{{url('discussions/detail')}}">American live music lorem ipsum dolor sit amet consectetur</a> </h3>
+                                            <p class="fst-italic">
+                                            Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
+                                            </p>
+                                            <ul>
+                                                <li><i class="ri-heart-line"></i> 10 <i class="ri-discuss-line"></i> 100</li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 p-r-25 p-r-15-sr991">
+                                    <div class="col-sm-12 p-r-25 p-r-15-sr991">
+                                        <a href="{{url('discussions/detail')}}" ></a>
                                         <!-- Item post -->	
-                                        <div class="m-b-30">
-                                            <a href="{{url('articles/detail')}}" class="wrap-pic-w hov1 trans-03">
-                                                <img src="{{asset('assets/img/mag/post-05.jpg')}}" alt="IMG">
-                                            </a>
-
-                                            <div class="p-t-20">
-                                                <h5 class="p-b-5">
-                                                    <a href="{{url('articles/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
-                                                        American live music lorem ipsum dolor sit amet consectetur 
-                                                    </a>
-                                                </h5>
-
-                                                <span class="cl8">
-                                                    <a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-                                                        Music
-                                                    </a>
-
-                                                    <span class="f1-s-3 m-rl-3">
-                                                        -
-                                                    </span>
-
-                                                    <span class="f1-s-3">
-                                                        Feb 18
-                                                    </span>
-                                                </span>
-                                            </div>
+                                        <div class="m-b-30 discussion-card">
+                                            <h3><a href="{{url('discussions/detail')}}">American live music lorem ipsum dolor sit amet consectetur</a> </h3>
+                                            <p class="fst-italic">
+                                            Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
+                                            </p>
+                                            <ul>
+                                                <li><i class="ri-heart-line"></i> 10 <i class="ri-discuss-line"></i> 100</li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 p-r-25 p-r-15-sr991">
+                                    <div class="col-sm-12 p-r-25 p-r-15-sr991">
+                                        <a href="{{url('discussions/detail')}}" ></a>
                                         <!-- Item post -->	
-                                        <div class="m-b-30">
-                                            <a href="{{url('articles/detail')}}" class="wrap-pic-w hov1 trans-03">
-                                                <img src="{{asset('assets/img/mag/post-05.jpg')}}" alt="IMG">
-                                            </a>
-
-                                            <div class="p-t-20">
-                                                <h5 class="p-b-5">
-                                                    <a href="{{url('articles/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
-                                                        American live music lorem ipsum dolor sit amet consectetur 
-                                                    </a>
-                                                </h5>
-
-                                                <span class="cl8">
-                                                    <a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-                                                        Music
-                                                    </a>
-
-                                                    <span class="f1-s-3 m-rl-3">
-                                                        -
-                                                    </span>
-
-                                                    <span class="f1-s-3">
-                                                        Feb 18
-                                                    </span>
-                                                </span>
-                                            </div>
+                                        <div class="m-b-30 discussion-card">
+                                            <h3><a href="{{url('discussions/detail')}}">American live music lorem ipsum dolor sit amet consectetur</a> </h3>
+                                            <p class="fst-italic">
+                                            Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
+                                            </p>
+                                            <ul>
+                                                <li><i class="ri-heart-line"></i> 10 <i class="ri-discuss-line"></i> 100</li>
+                                            </ul>
                                         </div>
                                     </div>
-                                    <div class="col-sm-6 p-r-25 p-r-15-sr991">
+                                    <div class="col-sm-12 p-r-25 p-r-15-sr991">
+                                        <a href="{{url('discussions/detail')}}" ></a>
                                         <!-- Item post -->	
-                                        <div class="m-b-30">
-                                            <a href="{{url('articles/detail')}}" class="wrap-pic-w hov1 trans-03">
-                                                <img src="{{asset('assets/img/mag/post-05.jpg')}}" alt="IMG">
-                                            </a>
-
-                                            <div class="p-t-20">
-                                                <h5 class="p-b-5">
-                                                    <a href="{{url('articles/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
-                                                        American live music lorem ipsum dolor sit amet consectetur 
-                                                    </a>
-                                                </h5>
-
-                                                <span class="cl8">
-                                                    <a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-                                                        Music
-                                                    </a>
-
-                                                    <span class="f1-s-3 m-rl-3">
-                                                        -
-                                                    </span>
-
-                                                    <span class="f1-s-3">
-                                                        Feb 18
-                                                    </span>
-                                                </span>
-                                            </div>
+                                        <div class="m-b-30 discussion-card">
+                                            <h3><a href="{{url('discussions/detail')}}">American live music lorem ipsum dolor sit amet consectetur</a> </h3>
+                                            <p class="fst-italic">
+                                            Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
+                                            </p>
+                                            <ul>
+                                                <li><i class="ri-heart-line"></i> 10 <i class="ri-discuss-line"></i> 100</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 p-r-25 p-r-15-sr991">
+                                        <a href="{{url('discussions/detail')}}" ></a>
+                                        <!-- Item post -->	
+                                        <div class="m-b-30 discussion-card">
+                                            <h3><a href="{{url('discussions/detail')}}">American live music lorem ipsum dolor sit amet consectetur</a> </h3>
+                                            <p class="fst-italic">
+                                            Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
+                                            </p>
+                                            <ul>
+                                                <li><i class="ri-heart-line"></i> 10 <i class="ri-discuss-line"></i> 100</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 p-r-25 p-r-15-sr991">
+                                        <a href="{{url('discussions/detail')}}" ></a>
+                                        <!-- Item post -->	
+                                        <div class="m-b-30 discussion-card">
+                                            <h3><a href="{{url('discussions/detail')}}">American live music lorem ipsum dolor sit amet consectetur</a> </h3>
+                                            <p class="fst-italic">
+                                            Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
+                                            </p>
+                                            <ul>
+                                                <li><i class="ri-heart-line"></i> 10 <i class="ri-discuss-line"></i> 100</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-12 p-r-25 p-r-15-sr991">
+                                        <a href="{{url('discussions/detail')}}" ></a>
+                                        <!-- Item post -->	
+                                        <div class="m-b-30 discussion-card">
+                                            <h3><a href="{{url('discussions/detail')}}">American live music lorem ipsum dolor sit amet consectetur</a> </h3>
+                                            <p class="fst-italic">
+                                            Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.
+                                            </p>
+                                            <ul>
+                                                <li><i class="ri-heart-line"></i> 10 <i class="ri-discuss-line"></i> 100</li>
+                                            </ul>
                                         </div>
                                     </div>
                                 </div>
@@ -350,13 +289,13 @@
                                     <div class="col-sm-6 p-r-25 p-r-15-sr991">
                                         <!-- Item post -->	
                                         <div class="m-b-30">
-                                            <a href="{{url('articles/detail')}}" class="wrap-pic-w hov1 trans-03">
+                                            <a href="{{url('discussions/detail')}}" class="wrap-pic-w hov1 trans-03">
                                                 <img src="{{asset('assets/img/mag/post-09.jpg')}}" alt="IMG">
                                             </a>
 
                                             <div class="p-t-20">
                                                 <h5 class="p-b-5">
-                                                    <a href="{{url('articles/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
+                                                    <a href="{{url('discussions/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
                                                         American live music lorem ipsum dolor sit amet consectetur 
                                                     </a>
                                                 </h5>
@@ -381,13 +320,13 @@
                                     <div class="col-sm-6 p-r-25 p-r-15-sr991">
                                         <!-- Item post -->
                                         <div class="flex-wr-sb-s m-b-30">
-                                            <a href="{{url('articles/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
+                                            <a href="{{url('discussions/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
                                                 <img src="{{asset('assets/img/mag/post-08.jpg')}}" alt="IMG">
                                             </a>
 
                                             <div class="size-w-2">
                                                 <h5 class="p-b-5">
-                                                    <a href="{{url('articles/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
+                                                    <a href="{{url('discussions/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
                                                         Donec metus orci, malesuada et lectus vitae
                                                     </a>
                                                 </h5>
@@ -410,13 +349,13 @@
 
                                         <!-- Item post -->	
                                         <div class="flex-wr-sb-s m-b-30">
-                                            <a href="{{url('articles/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
+                                            <a href="{{url('discussions/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
                                                 <img src="{{asset('assets/img/mag/post-06.jpg')}}" alt="IMG">
                                             </a>
 
                                             <div class="size-w-2">
                                                 <h5 class="p-b-5">
-                                                    <a href="{{url('articles/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
+                                                    <a href="{{url('discussions/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
                                                         Donec metus orci, malesuada et lectus vitae
                                                     </a>
                                                 </h5>
@@ -439,13 +378,13 @@
                                         
                                         <!-- Item post -->
                                         <div class="flex-wr-sb-s m-b-30">
-                                            <a href="{{url('articles/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
+                                            <a href="{{url('discussions/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
                                                 <img src="{{asset('assets/img/mag/post-07.jpg')}}" alt="IMG">
                                             </a>
 
                                             <div class="size-w-2">
                                                 <h5 class="p-b-5">
-                                                    <a href="{{url('articles/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
+                                                    <a href="{{url('discussions/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
                                                         Donec metus orci, malesuada et lectus vitae
                                                     </a>
                                                 </h5>
@@ -475,13 +414,13 @@
                                     <div class="col-sm-6 p-r-25 p-r-15-sr991">
                                         <!-- Item post -->	
                                         <div class="m-b-30">
-                                            <a href="{{url('articles/detail')}}" class="wrap-pic-w hov1 trans-03">
+                                            <a href="{{url('discussions/detail')}}" class="wrap-pic-w hov1 trans-03">
                                                 <img src="{{asset('assets/img/mag/post-08.jpg')}}" alt="IMG">
                                             </a>
 
                                             <div class="p-t-20">
                                                 <h5 class="p-b-5">
-                                                    <a href="{{url('articles/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
+                                                    <a href="{{url('discussions/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
                                                         American live music lorem ipsum dolor sit amet consectetur 
                                                     </a>
                                                 </h5>
@@ -506,13 +445,13 @@
                                     <div class="col-sm-6 p-r-25 p-r-15-sr991">
                                         <!-- Item post -->
                                         <div class="flex-wr-sb-s m-b-30">
-                                            <a href="{{url('articles/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
+                                            <a href="{{url('discussions/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
                                                 <img src="{{asset('assets/img/mag/post-07.jpg')}}" alt="IMG">
                                             </a>
 
                                             <div class="size-w-2">
                                                 <h5 class="p-b-5">
-                                                    <a href="{{url('articles/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
+                                                    <a href="{{url('discussions/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
                                                         Donec metus orci, malesuada et lectus vitae
                                                     </a>
                                                 </h5>
@@ -535,13 +474,13 @@
 
                                         <!-- Item post -->	
                                         <div class="flex-wr-sb-s m-b-30">
-                                            <a href="{{url('articles/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
+                                            <a href="{{url('discussions/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
                                                 <img src="{{asset('assets/img/mag/post-06.jpg')}}" alt="IMG">
                                             </a>
 
                                             <div class="size-w-2">
                                                 <h5 class="p-b-5">
-                                                    <a href="{{url('articles/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
+                                                    <a href="{{url('discussions/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
                                                         Donec metus orci, malesuada et lectus vitae
                                                     </a>
                                                 </h5>
@@ -564,13 +503,13 @@
                                         
                                         <!-- Item post -->
                                         <div class="flex-wr-sb-s m-b-30">
-                                            <a href="{{url('articles/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
+                                            <a href="{{url('discussions/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
                                                 <img src="{{asset('assets/img/mag/post-05.jpg')}}" alt="IMG">
                                             </a>
 
                                             <div class="size-w-2">
                                                 <h5 class="p-b-5">
-                                                    <a href="{{url('articles/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
+                                                    <a href="{{url('discussions/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
                                                         Donec metus orci, malesuada et lectus vitae
                                                     </a>
                                                 </h5>
@@ -600,13 +539,13 @@
                                     <div class="col-sm-6 p-r-25 p-r-15-sr991">
                                         <!-- Item post -->	
                                         <div class="m-b-30">
-                                            <a href="{{url('articles/detail')}}" class="wrap-pic-w hov1 trans-03">
+                                            <a href="{{url('discussions/detail')}}" class="wrap-pic-w hov1 trans-03">
                                                 <img src="{{asset('assets/img/mag/post-06.jpg')}}" alt="IMG">
                                             </a>
 
                                             <div class="p-t-20">
                                                 <h5 class="p-b-5">
-                                                    <a href="{{url('articles/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
+                                                    <a href="{{url('discussions/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
                                                         American live music lorem ipsum dolor sit amet consectetur 
                                                     </a>
                                                 </h5>
@@ -631,13 +570,13 @@
                                     <div class="col-sm-6 p-r-25 p-r-15-sr991">
                                         <!-- Item post -->
                                         <div class="flex-wr-sb-s m-b-30">
-                                            <a href="{{url('articles/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
+                                            <a href="{{url('discussions/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
                                                 <img src="{{asset('assets/img/mag/post-09.jpg')}}" alt="IMG">
                                             </a>
 
                                             <div class="size-w-2">
                                                 <h5 class="p-b-5">
-                                                    <a href="{{url('articles/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
+                                                    <a href="{{url('discussions/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
                                                         Donec metus orci, malesuada et lectus vitae
                                                     </a>
                                                 </h5>
@@ -660,13 +599,13 @@
 
                                         <!-- Item post -->	
                                         <div class="flex-wr-sb-s m-b-30">
-                                            <a href="{{url('articles/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
+                                            <a href="{{url('discussions/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
                                                 <img src="{{asset('assets/img/mag/post-07.jpg')}}" alt="IMG">
                                             </a>
 
                                             <div class="size-w-2">
                                                 <h5 class="p-b-5">
-                                                    <a href="{{url('articles/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
+                                                    <a href="{{url('discussions/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
                                                         Donec metus orci, malesuada et lectus vitae
                                                     </a>
                                                 </h5>
@@ -689,13 +628,13 @@
                                         
                                         <!-- Item post -->
                                         <div class="flex-wr-sb-s m-b-30">
-                                            <a href="{{url('articles/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
+                                            <a href="{{url('discussions/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
                                                 <img src="{{asset('assets/img/mag/post-08.jpg')}}" alt="IMG">
                                             </a>
 
                                             <div class="size-w-2">
                                                 <h5 class="p-b-5">
-                                                    <a href="{{url('articles/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
+                                                    <a href="{{url('discussions/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
                                                         Donec metus orci, malesuada et lectus vitae
                                                     </a>
                                                 </h5>
@@ -725,13 +664,13 @@
                                     <div class="col-sm-6 p-r-25 p-r-15-sr991">
                                         <!-- Item post -->	
                                         <div class="m-b-30">
-                                            <a href="{{url('articles/detail')}}" class="wrap-pic-w hov1 trans-03">
+                                            <a href="{{url('discussions/detail')}}" class="wrap-pic-w hov1 trans-03">
                                                 <img src="{{asset('assets/img/mag/post-07.jpg')}}" alt="IMG">
                                             </a>
 
                                             <div class="p-t-20">
                                                 <h5 class="p-b-5">
-                                                    <a href="{{url('articles/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
+                                                    <a href="{{url('discussions/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
                                                         American live music lorem ipsum dolor sit amet consectetur 
                                                     </a>
                                                 </h5>
@@ -756,13 +695,13 @@
                                     <div class="col-sm-6 p-r-25 p-r-15-sr991">
                                         <!-- Item post -->
                                         <div class="flex-wr-sb-s m-b-30">
-                                            <a href="{{url('articles/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
+                                            <a href="{{url('discussions/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
                                                 <img src="{{asset('assets/img/mag/post-08.jpg')}}" alt="IMG">
                                             </a>
 
                                             <div class="size-w-2">
                                                 <h5 class="p-b-5">
-                                                    <a href="{{url('articles/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
+                                                    <a href="{{url('discussions/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
                                                         Donec metus orci, malesuada et lectus vitae
                                                     </a>
                                                 </h5>
@@ -785,13 +724,13 @@
 
                                         <!-- Item post -->	
                                         <div class="flex-wr-sb-s m-b-30">
-                                            <a href="{{url('articles/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
+                                            <a href="{{url('discussions/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
                                                 <img src="{{asset('assets/img/mag/post-06.jpg')}}" alt="IMG">
                                             </a>
 
                                             <div class="size-w-2">
                                                 <h5 class="p-b-5">
-                                                    <a href="{{url('articles/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
+                                                    <a href="{{url('discussions/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
                                                         Donec metus orci, malesuada et lectus vitae
                                                     </a>
                                                 </h5>
@@ -814,13 +753,13 @@
                                         
                                         <!-- Item post -->
                                         <div class="flex-wr-sb-s m-b-30">
-                                            <a href="{{url('articles/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
+                                            <a href="{{url('discussions/detail')}}" class="size-w-1 wrap-pic-w hov1 trans-03">
                                                 <img src="{{asset('assets/img/mag/post-09.jpg')}}" alt="IMG">
                                             </a>
 
                                             <div class="size-w-2">
                                                 <h5 class="p-b-5">
-                                                    <a href="{{url('articles/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
+                                                    <a href="{{url('discussions/detail')}}" class="f1-s-5 cl3 hov-cl10 trans-03">
                                                         Donec metus orci, malesuada et lectus vitae
                                                     </a>
                                                 </h5>
@@ -855,7 +794,7 @@
                     <div>
                         <div class="how2 how2-cl4 flex-s-c">
                             <h3 class="f1-m-2 cl3 tab01-title">
-                                Most Popular Event
+                                Most Popular Discussions
                             </h3>
                         </div>
 
@@ -999,7 +938,7 @@
             <div class="col-md-10 col-lg-8 p-b-20">
                 <div class="how2 how2-cl4 flex-s-c m-r-10 m-r-0-sr991">
                     <h3 class="f1-m-2 cl3 tab01-title">
-                        Latest Articles
+                        Latest discussions
                     </h3>
                 </div>
 
@@ -1007,13 +946,13 @@
                     <div class="col-sm-6 p-r-25 p-r-15-sr991">
                         <!-- Item latest -->	
                         <div class="m-b-45">
-                            <a href="{{url('articles/detail')}}" class="wrap-pic-w hov1 trans-03">
+                            <a href="{{url('discussions/detail')}}" class="wrap-pic-w hov1 trans-03">
                                 <img src="{{asset('assets/img/mag/latest-01.jpg')}}" alt="IMG">
                             </a>
 
                             <div class="p-t-16">
                                 <h5 class="p-b-5">
-                                    <a href="{{url('articles/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
+                                    <a href="{{url('discussions/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
                                         You wish lorem ipsum dolor sit amet consectetur 
                                     </a>
                                 </h5>
@@ -1038,13 +977,13 @@
                     <div class="col-sm-6 p-r-25 p-r-15-sr991">
                         <!-- Item latest -->	
                         <div class="m-b-45">
-                            <a href="{{url('articles/detail')}}" class="wrap-pic-w hov1 trans-03">
+                            <a href="{{url('discussions/detail')}}" class="wrap-pic-w hov1 trans-03">
                                 <img src="{{asset('assets/img/mag/latest-02.jpg')}}" alt="IMG">
                             </a>
 
                             <div class="p-t-16">
                                 <h5 class="p-b-5">
-                                    <a href="{{url('articles/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
+                                    <a href="{{url('discussions/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
                                         You wish lorem ipsum dolor sit amet consectetur 
                                     </a>
                                 </h5>
@@ -1069,13 +1008,13 @@
                     <div class="col-sm-6 p-r-25 p-r-15-sr991">
                         <!-- Item latest -->	
                         <div class="m-b-45">
-                            <a href="{{url('articles/detail')}}" class="wrap-pic-w hov1 trans-03">
+                            <a href="{{url('discussions/detail')}}" class="wrap-pic-w hov1 trans-03">
                                 <img src="{{asset('assets/img/mag/latest-03.jpg')}}" alt="IMG">
                             </a>
 
                             <div class="p-t-16">
                                 <h5 class="p-b-5">
-                                    <a href="{{url('articles/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
+                                    <a href="{{url('discussions/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
                                         You wish lorem ipsum dolor sit amet consectetur 
                                     </a>
                                 </h5>
@@ -1100,13 +1039,13 @@
                     <div class="col-sm-6 p-r-25 p-r-15-sr991">
                         <!-- Item latest -->	
                         <div class="m-b-45">
-                            <a href="{{url('articles/detail')}}" class="wrap-pic-w hov1 trans-03">
+                            <a href="{{url('discussions/detail')}}" class="wrap-pic-w hov1 trans-03">
                                 <img src="{{asset('assets/img/mag/latest-04.jpg')}}" alt="IMG">
                             </a>
 
                             <div class="p-t-16">
                                 <h5 class="p-b-5">
-                                    <a href="{{url('articles/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
+                                    <a href="{{url('discussions/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
                                         You wish lorem ipsum dolor sit amet consectetur 
                                     </a>
                                 </h5>
@@ -1131,13 +1070,13 @@
                     <div class="col-sm-6 p-r-25 p-r-15-sr991">
                         <!-- Item latest -->	
                         <div class="m-b-45">
-                            <a href="{{url('articles/detail')}}" class="wrap-pic-w hov1 trans-03">
+                            <a href="{{url('discussions/detail')}}" class="wrap-pic-w hov1 trans-03">
                                 <img src="{{asset('assets/img/mag/latest-05.jpg')}}" alt="IMG">
                             </a>
 
                             <div class="p-t-16">
                                 <h5 class="p-b-5">
-                                    <a href="{{url('articles/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
+                                    <a href="{{url('discussions/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
                                         You wish lorem ipsum dolor sit amet consectetur 
                                     </a>
                                 </h5>
@@ -1162,13 +1101,13 @@
                     <div class="col-sm-6 p-r-25 p-r-15-sr991">
                         <!-- Item latest -->	
                         <div class="m-b-45">
-                            <a href="{{url('articles/detail')}}" class="wrap-pic-w hov1 trans-03">
+                            <a href="{{url('discussions/detail')}}" class="wrap-pic-w hov1 trans-03">
                                 <img src="{{asset('assets/img/mag/latest-06.jpg')}}" alt="IMG">
                             </a>
 
                             <div class="p-t-16">
                                 <h5 class="p-b-5">
-                                    <a href="{{url('articles/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
+                                    <a href="{{url('discussions/detail')}}" class="f1-m-3 cl2 hov-cl10 trans-03">
                                         You wish lorem ipsum dolor sit amet consectetur 
                                     </a>
                                 </h5>
@@ -1301,5 +1240,4 @@
         </div>
     </div>
 </section>
-
-@endsection
+  @endsection

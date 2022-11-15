@@ -50,6 +50,32 @@ class ContentPageController extends Controller
         return view('frontend.contentPages.category_all');
     }
 
+    public function discussions()
+    {
+        return view('frontend.discussions.index');
+    }
+
+    public function discussions_detail()
+    {
+        return view('frontend.discussions.detail');
+    }
+
+
+    public function about()
+    {
+        return view('frontend.about.index');
+    }
+
+    public function resource_library()
+    {
+        return view('frontend.resource_library.index');
+    }
+
+    public function regulations()
+    {
+        return view('frontend.regulations.index');
+    }
+
     public function create()
     {
         abort_if(Gate::denies('content_page_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');

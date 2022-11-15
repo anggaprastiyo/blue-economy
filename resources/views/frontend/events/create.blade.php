@@ -55,7 +55,7 @@
                         </div>
                         <div class="form-group">
                             <label for="featured_image">{{ trans('cruds.event.fields.featured_image') }}</label>
-                            <div class="needsclick dropzone" id="featured_image-dropzone">
+                            <input class="form-control" type="file" name="featured_image" id="featured_image"  required>
                             </div>
                             @if($errors->has('featured_image'))
                                 <div class="invalid-feedback">

@@ -28,6 +28,7 @@
   <link href="{{asset('assets/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
 
   <!-- Template Main CSS File -->
+  <link href="{{asset('assets/css/carousel-card.css')}}" rel="stylesheet">
   <link href="{{asset('assets/css/util.min.css')}}" rel="stylesheet">
   <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
   <link href="{{asset('assets/css/style.css')}}" rel="stylesheet">
@@ -48,29 +49,16 @@
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
           <li><a class="nav-link scrollto active" href="/">Home</a></li>
-          <li class="dropdown"><a href="#"><span>About</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
-            </ul>
-          </li>
-          <li class="dropdown"><a href="#"><span>Blue Economy Framework</span> <i class="bi bi-chevron-down"></i></a>
-            <ul>
-              <li><a href="#">International Framework</a></li>
-              <li><a href="#">EU Policies</a></li>
-              <li><a href="#">Mediterranean Basin</a></li>
-            </ul>
-          </li>
+          <li><a class="nav-link scrollto" href="{{ route('frontend.about.index') }}">About</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('frontend.regulations.index') }}">Regulation</a></li>
           <li class="dropdown"><a href="#"><span>Blue Economy Community</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Discussions</a></li>
-              <li><a href="#">Groups</a></li>
-              <li><a href="#">Events</a></li>
+              <li><a href="{{ route('frontend.discussions.all') }}">Discussions</a></li>
+              <li><a href="{{ route('frontend.events-page.all') }}">Events</a></li>
+              <li><a href="{{ route('frontend.articles.all') }}">Articles</a></li>
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#hero">Resource Library</a></li>
+          <li><a class="nav-link scrollto" href="{{ route('frontend.resource_library.index') }}">Resource Library</a></li>
           <i class="bi bi-list mobile-nav-toggle"></i>
           <ul class="navbar-nav ml-auto">
             <!-- Authentication Links -->
@@ -244,20 +232,11 @@
             </p>
           </div>
 
-          <div class="col-lg-2 col-md-6 footer-links">
-            <h4>Blue Economy Framework</h4>
-            <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">International Framework</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">EU Policies</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Mediterranean Basin</a></li>
-            </ul>
-          </div>
-
-          <div class="col-lg-3 col-md-6 footer-links">
+          <div class="col-lg-4 col-md-6 footer-links">
             <h4>Blue Economy Community</h4>
             <ul>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Discussions</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="#">Groups</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Articles</a></li>
               <li><i class="bx bx-chevron-right"></i> <a href="#">Events</a></li>
             </ul>
           </div>

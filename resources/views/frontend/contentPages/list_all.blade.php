@@ -1,6 +1,10 @@
 @extends('layouts.frontend')
 @section('content')
 <section class="bg0">
+    <div class="section-title">
+        <h2>Articles</h2>
+    <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
+    </div>
     <div class="container">
         <div class="row m-rl--1">
             <div class="col-md-6 p-rl-1 p-b-2">
