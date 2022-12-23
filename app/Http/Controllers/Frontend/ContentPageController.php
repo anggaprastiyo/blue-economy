@@ -11,6 +11,7 @@ use App\Models\ContentCategory;
 use App\Models\ContentPage;
 use App\Models\ContentTag;
 use App\Models\User;
+use App\Repositories\ContentPageRepository;
 use Gate;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -40,9 +41,14 @@ class ContentPageController extends Controller
         return view('frontend.contentPages.detail');
     }
 
-    public function all()
+    public function all(Request $request)
     {
-        return view('frontend.contentPages.list_all');
+        $slug = isset($request->slug) ? $request->slug : null;
+
+        $latestArticle = ContentPageRepository::getLatest();
+        $articles = ContentPageRepository::getAll($slug);
+        $contentCategories = ContentCategory::get()->whereNotIn('slug', ['about', 'regulation']);
+        return view('frontend.contentPages.list_all', compact('latestArticle', 'articles', 'contentCategories'));
     }
 
     public function categoryAll()
@@ -63,7 +69,9 @@ class ContentPageController extends Controller
 
     public function about()
     {
-        return view('frontend.about.index');
+        // fetch About Article
+        $about = ContentPageRepository::getBySlug('about');
+        return view('frontend.about.index')->with(compact('about'));
     }
 
     public function resource_library()
@@ -73,7 +81,9 @@ class ContentPageController extends Controller
 
     public function regulations()
     {
-        return view('frontend.regulations.index');
+        // fetch regulation Article
+        $regulation = ContentPageRepository::getBySlug('regulation');
+        return view('frontend.regulations.index')->with(compact('regulation'));
     }
 
     public function create()
