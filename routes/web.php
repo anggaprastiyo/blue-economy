@@ -50,6 +50,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('faq-questions/destroy', 'FaqQuestionController@massDestroy')->name('faq-questions.massDestroy');
     Route::resource('faq-questions', 'FaqQuestionController');
 
+    // Resource Library
+    Route::delete('resource-library/destroy', 'ResourceLibraryController@massDestroy')->name('resource-library.massDestroy');
+    Route::resource('resource-libraries', 'ResourceLibraryController');
+
     // Audit Logs
     Route::resource('audit-logs', 'AuditLogsController', ['except' => ['create', 'store', 'edit', 'update', 'destroy']]);
 
@@ -121,7 +125,7 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     Route::get('discussions/all', 'ContentPageController@discussions')->name('discussions.all');
     Route::get('discussions/detail', 'ContentPageController@discussions_detail')->name('discussions.detail');
     Route::get('resource_library', 'ContentPageController@resource_library')->name('resource_library.index');
-    Route::get('articles/detail', 'ContentPageController@detail')->name('articles.detail');
+    Route::get('articles/detail/{id}', 'ContentPageController@detail')->name('articles.detail');
     Route::get('articles/all', 'ContentPageController@all')->name('articles.all');
     Route::get('articles/category-all', 'ContentPageController@categoryAll')->name('articles.category-all');
 
@@ -139,7 +143,7 @@ Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['
     Route::post('events/ckmedia', 'EventController@storeCKEditorImages')->name('events.storeCKEditorImages');
     Route::resource('events', 'EventController');
     Route::get('events2', 'EventController@test')->name('events.test');
-    Route::get('events-page/detail', 'EventController@detail')->name('events-page.detail');
+    Route::get('events-page/detail/{id}', 'EventController@detail')->name('events-page.detail');
     Route::get('events-page/all', 'EventController@all')->name('events-page.all');
     Route::get('events-page/category-all', 'EventController@categoryAll')->name('events-page.category-all');
 

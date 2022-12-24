@@ -17,12 +17,17 @@ class ContentPageRepository
     private static function baseQuery() {
         return ContentPage::select('content_pages.*', 'content_categories.slug')
             ->join('content_category_content_page', 'content_category_content_page.content_page_id', '=', 'content_pages.id')
-            ->join('content_categories', 'content_categories.id', '=', 'content_category_content_page.content_category_id');
+            ->join('content_categories', 'content_categories.id', '=', 'content_category_content_page.content_category_id')
+            ->where('content_pages.publish_status', 1);
     }
 
     public static function getBySlug($slug) {
         return self::baseQuery()->where('content_categories.slug', $slug)
-            ->where('content_pages.publish_status', 1)
+            ->first();
+    }
+
+    public static function getById($id) {
+        return self::baseQuery()->where('content_pages.id', $id)
             ->first();
     }
 
@@ -37,8 +42,8 @@ class ContentPageRepository
             $result[$key + 1] = $value;
             $result[$key + 1]['identifier'] = $key + 1;
             $result[$key + 1]['image'] = $value->getFeaturedImageAttribute();
-        }    
-
+        }
+    
         return $result;
     }
 
@@ -48,6 +53,6 @@ class ContentPageRepository
                 $query->where('content_categories.slug', $slug);
             })
             ->orderBy('id', 'desc')
-            ->simplePaginate(3);
+            ->simplePaginate(10);
     }
 }

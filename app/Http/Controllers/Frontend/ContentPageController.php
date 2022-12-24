@@ -7,6 +7,7 @@ use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyContentPageRequest;
 use App\Http\Requests\StoreContentPageRequest;
 use App\Http\Requests\UpdateContentPageRequest;
+use App\Models\Comment;
 use App\Models\ContentCategory;
 use App\Models\ContentPage;
 use App\Models\ContentTag;
@@ -14,6 +15,8 @@ use App\Models\User;
 use App\Repositories\ContentPageRepository;
 use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -36,9 +39,13 @@ class ContentPageController extends Controller
         return view('frontend.contentPages.index', compact('contentPages', 'content_categories', 'content_tags', 'users'));
     }
 
-    public function detail()
+    public function detail($id)
     {
-        return view('frontend.contentPages.detail');
+        $user = Auth::user();
+        $article = ContentPageRepository::getById($id);
+        $contentCategories = ContentCategory::get()->whereNotIn('slug', ['about', 'regulation']);
+        $comments = Comment::where('content_page_id', $id)->get();
+        return view('frontend.contentPages.detail')->with(compact('article', 'contentCategories', 'user', 'comments'));
     }
 
     public function all(Request $request)
