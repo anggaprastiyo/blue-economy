@@ -59,7 +59,7 @@ class Event extends Model implements HasMedia
 
     public function getDateAttribute($value)
     {
-        return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format(config('panel.date_format') . ' ' . config('panel.time_format')) : null;
+        return $value ? Carbon::createFromFormat('Y-m-d H:i:s', $value)->format('D M Y') : null;
     }
 
     public function setDateAttribute($value)

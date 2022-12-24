@@ -78,7 +78,7 @@
             </li>
         @endcan
         @can('content_management_access')
-            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/content-categories*") ? "c-show" : "" }} {{ request()->is("admin/content-tags*") ? "c-show" : "" }} {{ request()->is("admin/content-pages*") ? "c-show" : "" }} {{ request()->is("admin/events*") ? "c-show" : "" }}">
+            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/content-categories*") ? "c-show" : "" }} {{ request()->is("admin/content-tags*") ? "c-show" : "" }} {{ request()->is("admin/content-pages*") ? "c-show" : "" }} {{ request()->is("admin/events*") ? "c-show" : "" }} {{ request()->is("admin/comments*") ? "c-show" : "" }}">
                 <a class="c-sidebar-nav-dropdown-toggle" href="#">
                     <i class="fa-fw fas fa-book c-sidebar-nav-icon">
 
@@ -123,6 +123,26 @@
 
                                 </i>
                                 {{ trans('cruds.event.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                    @can('resource_library_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.resource-libraries.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/resource-libraries") || request()->is("admin/resource-libraries/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-map-marker c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.resourceLibrary.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                    @can('comment_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.comments.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/comments") || request()->is("admin/comments/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-comments c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.comment.title') }}
                             </a>
                         </li>
                     @endcan

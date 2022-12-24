@@ -7,12 +7,16 @@ use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyContentPageRequest;
 use App\Http\Requests\StoreContentPageRequest;
 use App\Http\Requests\UpdateContentPageRequest;
+use App\Models\Comment;
 use App\Models\ContentCategory;
 use App\Models\ContentPage;
 use App\Models\ContentTag;
 use App\Models\User;
+use App\Repositories\ContentPageRepository;
 use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Session;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -33,6 +37,60 @@ class ContentPageController extends Controller
         $users = User::get();
 
         return view('frontend.contentPages.index', compact('contentPages', 'content_categories', 'content_tags', 'users'));
+    }
+
+    public function detail($id)
+    {
+        $user = Auth::user();
+        $article = ContentPageRepository::getById($id);
+        $contentCategories = ContentCategory::get()->whereNotIn('slug', ['about', 'regulation']);
+        $comments = Comment::where('content_page_id', $id)->get();
+        return view('frontend.contentPages.detail')->with(compact('article', 'contentCategories', 'user', 'comments'));
+    }
+
+    public function all(Request $request)
+    {
+        $slug = isset($request->slug) ? $request->slug : null;
+
+        $latestArticle = ContentPageRepository::getLatest();
+        $articles = ContentPageRepository::getAll($slug);
+        $contentCategories = ContentCategory::get()->whereNotIn('slug', ['about', 'regulation']);
+        return view('frontend.contentPages.list_all', compact('latestArticle', 'articles', 'contentCategories'));
+    }
+
+    public function categoryAll()
+    {
+        return view('frontend.contentPages.category_all');
+    }
+
+    public function discussions()
+    {
+        return view('frontend.discussions.index');
+    }
+
+    public function discussions_detail()
+    {
+        return view('frontend.discussions.detail');
+    }
+
+
+    public function about()
+    {
+        // fetch About Article
+        $about = ContentPageRepository::getBySlug('about');
+        return view('frontend.about.index')->with(compact('about'));
+    }
+
+    public function resource_library()
+    {
+        return view('frontend.resource_library.index');
+    }
+
+    public function regulations()
+    {
+        // fetch regulation Article
+        $regulation = ContentPageRepository::getBySlug('regulation');
+        return view('frontend.regulations.index')->with(compact('regulation'));
     }
 
     public function create()
