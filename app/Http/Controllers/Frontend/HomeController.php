@@ -1,10 +1,10 @@
 <?php
 
 namespace App\Http\Controllers\Frontend;
+
+use App\Models\ContentCategory;
 use App\Models\ContentPage;
 use App\Models\Event;
-use Illuminate\Support\Facades\DB;
-use Session;
 
 class HomeController
 {
@@ -20,7 +20,9 @@ class HomeController
             ->orderBy('created_at', 'DESC')
             ->get();
 
-        return view('frontend.home', compact('events', 'articles'));
+        $contentCategories = ContentCategory::get()->whereNotIn('slug', ['about', 'regulation']);
+
+        return view('frontend.home', compact('events', 'articles', 'contentCategories'));
     }
 
     public function test()
