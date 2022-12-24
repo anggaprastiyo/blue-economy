@@ -143,7 +143,7 @@
         <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
       </div>
 
-      <div id="carouselId" class="carousel slide" data-ride="carousel">
+      <div id="carouselId" class="carousel carousel-card slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselId" data-slide-to="0" class="active"></li>
             <li data-target="#carouselId" data-slide-to="1"></li>

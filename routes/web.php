@@ -36,6 +36,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('content-tags/destroy', 'ContentTagController@massDestroy')->name('content-tags.massDestroy');
     Route::resource('content-tags', 'ContentTagController');
 
+    // Slider 
+    Route::delete('sliders/destroy', 'SlidersController@massDestroy')->name('sliders.massDestroy');
+    Route::resource('sliders', 'SlidersController');
+
     // Content Page
     Route::delete('content-pages/destroy', 'ContentPageController@massDestroy')->name('content-pages.massDestroy');
     Route::post('content-pages/media', 'ContentPageController@storeMedia')->name('content-pages.storeMedia');
