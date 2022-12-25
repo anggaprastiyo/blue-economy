@@ -7,16 +7,16 @@
         <div class="container" data-aos="zoom-out" data-aos-delay="100">
             <div class="row">
                 <div class="col-xl-6">
-                    <h1>Bettter digital experience with Presento</h1>
-                    <h2>We are team of talented designers making websites with Bootstrap</h2>
-                    <a href="#about" class="btn-get-started scrollto">Get Started</a>
+                    <h1>Solusi Interaksi Ekonomi Biru</h1>
+                    <h2>Platform digital untuk mendukung koordinasi dan sinergi stakeholder ekonomi biru</h2>
+                    <a href="{{url('/admin')}}}" class="btn-get-started scrollto">Bergabung bersama kami</a>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- ======= Clients Section ======= -->
-    <section id="clients" class="clients">
+    {{--  <section id="clients" class="clients">
         <div class="container" data-aos="zoom-in">
             <div class="section-title">
                 <h2>Get to know our partners</h2>
@@ -49,7 +49,7 @@
         <div style="text-align:center">
             <a href="#about" class="get-started-btn scrollto" style="margin: 10px 0px 0px 0px;">Go to Partners</a>
         </div>
-    </section><!-- End Clients Section -->
+    </section><!-- End Clients Section -->  --}}
 
     <!-- ======= About Section ======= -->
     <section id="about" class="about section-bg">
@@ -58,10 +58,9 @@
             <div class="row no-gutters">
                 <div class="content col-xl-5 d-flex align-items-stretch">
                     <div class="content">
-                        <h3>The Blue Economy Community Forum</h3>
+                        <h3>Blue Economy Platform</h3>
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-                            labore et dolore magna aliqua. Duis aute irure dolor in reprehenderit
+                            Wadah berjejaring stakeholders, memfasilitasi koordinasi dan sinergi berbagai inisiatif serta aktivitas guna pembangunan ekonomi biru 
                         </p>
                         <a href="#" class="about-btn"><span>About us</span> <i class="bx bx-chevron-right"></i></a>
                     </div>
@@ -72,22 +71,22 @@
                             <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
                                 <i class="bx bx-images"></i>
                                 <h4>Discussions</h4>
-                                <p>Aut suscipit aut cum nemo deleniti aut omnis. Doloribus ut maiores omnis facere</p>
+                                <p>Hubungi stakeholder lain secara langsung melalui Blue Economy</p>
                             </div>
                             <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
                                 <i class="bx bx-shield"></i>
                                 <h4>Events</h4>
-                                <p>Expedita veritatis consequuntur nihil tempore laudantium vitae denat pacta</p>
+                                <p>Daftar event yang berkaitan dengan ekonomi biru</p>
                             </div>
                             <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
                                 <i class="bx bx-cube-alt"></i>
                                 <h4>Articles</h4>
-                                <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt</p>
+                                <p>Artikel-artikel dari stakeholder terkait ekonomi biru</p>
                             </div>
                             <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
                                 <i class="bx bx-receipt"></i>
                                 <h4>Resource Library</h4>
-                                <p>Consequuntur sunt aut quasi enim aliquam quae harum pariatur laboris nisi ut aliquip</p>
+                                <p>Daftar stakeholder ekonomi biru</p>
                             </div>
                         </div>
                     </div><!-- End .content-->
@@ -101,7 +100,7 @@
     <section id="locations" class="locations">
         <div class="container" data-aos="zoom-in">
             <div class="section-title">
-                <h2>Our location</h2>
+                <h2>Resource Stakeholder</h2>
                 <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
             </div>
             <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1yWpsj6aBnPLYZCJbYGCOfzUG5MjWI8k&ehbc=2E312F"
