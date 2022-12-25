@@ -36,7 +36,8 @@ class EventController extends Controller
 
     public function all()
     {
-        return view('frontend.events.list_all');
+        $events = Event::with(['created_by', 'media'])->simplePaginate(10);
+        return view('frontend.events.list_all')->with(compact('events'));
     }
 
     public function categoryAll()

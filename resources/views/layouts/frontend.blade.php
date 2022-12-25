@@ -48,12 +48,11 @@
 
       <nav id="navbar" class="navbar order-last order-lg-0">
         <ul>
-          <li><a class="nav-link scrollto active" href="/">Home</a></li>
+          <li><a class="nav-link scrollto active" href="{{ route('home') }}">Home</a></li>
           <li><a class="nav-link scrollto" href="{{ route('frontend.about.index') }}">About</a></li>
           <li><a class="nav-link scrollto" href="{{ route('frontend.regulations.index') }}">Regulation</a></li>
           <li class="dropdown"><a href="#"><span>Blue Economy Community</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="{{ route('frontend.discussions.all') }}">Discussions</a></li>
               <li><a href="{{ route('frontend.events-page.all') }}">Events</a></li>
               <li><a href="{{ route('frontend.articles.all') }}">Articles</a></li>
             </ul>

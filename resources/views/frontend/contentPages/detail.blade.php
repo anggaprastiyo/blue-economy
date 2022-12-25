@@ -1,421 +1,140 @@
 @extends('layouts.frontend')
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-10 col-lg-8 p-b-30">
-            <div class="p-r-10 p-r-0-sr991">
-                <!-- Blog Detail -->
-                <div class="p-b-70">
-                    <a href="#" class="f1-s-10 cl2 hov-cl10 trans-03 text-uppercase">
-                        Technology
-                    </a>
-
-                    <h3 class="f1-l-3 cl2 p-b-16 p-t-33 respon2">
-                        Nulla non interdum metus non laoreet nisi tellus eget aliquam lorem pellentesque
-                    </h3>
-                    
-                    <div class="flex-wr-s-s p-b-40">
-                        <span class="f1-s-3 cl8 m-r-15">
-                            <a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
-                                by John Alvarado
-                            </a>
-
-                            <span class="m-rl-3">-</span>
-
-                            <span>
-                                Feb 18
-                            </span>
-                        </span>
-
-                        <span class="f1-s-3 cl8 m-r-15">
-                            5239 Views
-                        </span>
-
-                        <a href="#" class="f1-s-3 cl8 hov-cl10 trans-03 m-r-15">
-                            0 Comment
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-10 col-lg-8 p-b-30">
+                <div class="p-r-10 p-r-0-sr991">
+                    <!-- Blog Detail -->
+                    <div class="p-b-70">
+                        <a href="#" class="f1-s-10 cl2 hov-cl10 trans-03 text-uppercase">
+                            {{ $article->slug }}
                         </a>
-                    </div>
 
-                    <div class="wrap-pic-max-w p-b-30">
-                        <img src="{{asset('assets/img/mag/blog-list-01.jpg')}}" alt="IMG">
-                    </div>
+                        <h3 class="f1-l-3 cl2 p-b-16 p-t-33 respon2">
+                            {{ $article->title }}
+                        </h3>
 
-                    <p class="f1-s-11 cl6 p-b-25">
-                        Curabitur volutpat bibendum molestie. Vestibulum ornare gravida semper. Aliquam a dui suscipit, fringilla metus id, maximus leo. Vivamus sapien arcu, mollis eu pharetra vitae, condimentum in orci. Integer eu sodales dolor. Maecenas elementum arcu eu convallis rhoncus. Donec tortor sapien, euismod a faucibus eget, porttitor quis libero. 
-                    </p>
+                        <div class="flex-wr-s-s p-b-40">
+                            <span class="f1-s-3 cl8 m-r-15">
+                                <span>
+                                    {{ $article->created_at }}
+                                </span>
+                            </span>
 
-                    <p class="f1-s-11 cl6 p-b-25">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc sit amet est vel orci luctus sollicitudin. Duis eleifend vestibulum justo, varius semper lacus condimentum dictum. Donec pulvinar a magna ut malesuada. In posuere felis diam, vel sodales metus accumsan in. Duis viverra dui eu pharetra pellentesque. Donec a eros leo. Quisque sed ligula vitae lorem efficitur faucibus. Praesent sit amet imperdiet ante. Nulla id tellus auctor, dictum libero a, malesuada nisi. Nulla in porta nibh, id vestibulum ipsum. Praesent dapibus tempus erat quis aliquet. Donec ac purus id sapien condimentum feugiat.
-                    </p>
+                            <span class="f1-s-3 cl8 m-r-15">
+                                5239 Views
+                            </span>
 
-                    <p class="f1-s-11 cl6 p-b-25">
-                        Praesent vel mi bibendum, finibus leo ac, condimentum arcu. Pellentesque sem ex, tristique sit amet suscipit in, mattis imperdiet enim. Integer tempus justo nec velit fringilla, eget eleifend neque blandit. Sed tempor magna sed congue auctor. Mauris eu turpis eget tortor ultricies elementum. Phasellus vel placerat orci, a venenatis justo. Phasellus faucibus venenatis nisl vitae vestibulum. Praesent id nibh arcu. Vivamus sagittis accumsan felis, quis vulputate
-                    </p>
-
-                    <!-- Tag -->
-                    <div class="flex-s-s p-t-12 p-b-15">
-                        <span class="f1-s-12 cl5 m-r-8">
-                            Tags:
-                        </span>
-                        
-                        <div class="flex-wr-s-s size-w-0">
-                            <a href="#" class="f1-s-12 cl8 hov-link1 m-r-15">
-                                Streetstyle
+                            <a href="#" class="f1-s-3 cl8 hov-cl10 trans-03 m-r-15">
+                                0 Comment
                             </a>
+                        </div>
 
-                            <a href="#" class="f1-s-12 cl8 hov-link1 m-r-15">
-                                Crafts
-                            </a>
+                        <div class="wrap-pic-max-w p-b-30">
+                            <img src="{{ $article->getFeaturedImageAttribute()->url }}" alt="IMG">
+                        </div>
+
+                        {!! $article->page_text !!}
+
+                        <!-- Tag -->
+                        <div class="flex-s-s p-t-12">
+                            <span class="f1-s-12 cl5 m-r-8">
+                                Tags:
+                            </span>
+
+                            <div class="flex-wr-s-s size-w-0">
+                                @foreach ($article->tags as $tag)
+                                    <span class="badge badge-danger mr-1">{{ $tag->name }}</span>
+                                @endforeach
+                            </div>
                         </div>
                     </div>
 
-                    <!-- Share -->
-                    <div class="flex-s-s">
-                        <span class="f1-s-12 cl5 p-t-1 m-r-15">
-                            Share:
-                        </span>
-                        
-                        <div class="flex-wr-s-s size-w-0">
-                            <a href="#" class="dis-block f1-s-13 cl0 bg-facebook borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
-                                <i class="fab fa-facebook-f m-r-7"></i>
-                                Facebook
-                            </a>
+                    <!-- Leave a comment -->
+                    <div>
+                        <h4 class="f1-l-4 cl3 p-b-12">
+                            Leave a Comment
+                        </h4>
 
-                            <a href="#" class="dis-block f1-s-13 cl0 bg-twitter borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
-                                <i class="fab fa-twitter m-r-7"></i>
-                                Twitter
-                            </a>
+                        <p class="f1-s-13 cl8 p-b-40">
+                            Your email address will not be published. Required fields are marked *
+                        </p>
 
-                            <a href="#" class="dis-block f1-s-13 cl0 bg-google borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
-                                <i class="fab fa-google-plus-g m-r-7"></i>
-                                Google+
-                            </a>
+                        <form method="POST" action="{{ route('frontend.comments.store') }}" enctype="multipart/form-data">
+                            @csrf
+                            <input type="hidden" name="content_page_id" value="{{ $article->id }}">
+                            <input type="hidden" name="user_id" value="{{ $user->id }}">
+                            <textarea class="bo-1-rad-3 bocl13 size-a-15 f1-s-13 cl5 plh6 p-rl-18 p-tb-14 m-b-20" name="comment"
+                                placeholder="Comment..."></textarea>
 
-                            <a href="#" class="dis-block f1-s-13 cl0 bg-pinterest borad-3 p-tb-4 p-rl-18 hov-btn1 m-r-3 m-b-3 trans-03">
-                                <i class="fab fa-pinterest-p m-r-7"></i>
-                                Pinterest
-                            </a>
+                            <button type="submit"
+                                class="size-a-17 bg2 borad-3 f1-s-12 cl0 hov-btn1 trans-03 p-rl-15 m-t-10">
+                                Post Comment
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <!-- Tab panes -->
+                    <div class="tab-content p-t-35">
+                        <hr>
+                        <div class="tab-pane fade show active" id="all" role="tabpanel">
+                            <div class="row">
+                                <div class="col-sm-12 p-r-5-sr991">
+                                    <!-- Item post -->
+                                    @foreach ($comments as $comment)
+                                        <div class="flex-wr-sb-s m-b-30">
+                                            <a class="size-w-1 wrap-pic-w hov1 trans-03">
+                                                <img src="{{ asset('assets/img/user.png') }}" alt="IMG"
+                                                    style="width:50px">
+                                            </a>
+
+                                            <div class="size-w-2">
+                                                <h5 class="p-b-5">
+                                                    <a class="f1-s-5 cl3 hov-cl10 trans-03">
+                                                        {{ $comment->user->name }}
+                                                    </a>
+                                                    <p><small>{{ $comment->comment }}</small></p>
+                                                </h5>
+
+                                                <span class="cl8">
+                                                    <span class="f1-s-3">
+                                                        {{ $comment->created_at }}
+                                                    </span>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-
-                <!-- Leave a comment -->
-                <div>
-                    <h4 class="f1-l-4 cl3 p-b-12">
-                        Leave a Comment
-                    </h4>
-
-                    <p class="f1-s-13 cl8 p-b-40">
-                        Your email address will not be published. Required fields are marked *
-                    </p>
-
-                    <form>
-                        <textarea class="bo-1-rad-3 bocl13 size-a-15 f1-s-13 cl5 plh6 p-rl-18 p-tb-14 m-b-20" name="msg" placeholder="Comment..."></textarea>
-
-                        <input class="bo-1-rad-3 bocl13 size-a-16 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="text" name="name" placeholder="Name*">
-
-                        <input class="bo-1-rad-3 bocl13 size-a-16 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="text" name="email" placeholder="Email*">
-
-                        <input class="bo-1-rad-3 bocl13 size-a-16 f1-s-13 cl5 plh6 p-rl-18 m-b-20" type="text" name="website" placeholder="Website">
-
-                        <button class="size-a-17 bg2 borad-3 f1-s-12 cl0 hov-btn1 trans-03 p-rl-15 m-t-10">
-                            Post Comment
-                        </button>
-                    </form>
                 </div>
             </div>
-        </div>
-        
-        <!-- Sidebar -->
-        <div class="col-md-10 col-lg-4 p-b-30">
-            <div class="p-l-10 p-rl-0-sr991 p-t-70">						
-                <!-- Category -->
-                <div class="p-b-60">
-                    <div class="how2 how2-cl4 flex-s-c">
-                        <h3 class="f1-m-2 cl3 tab01-title">
-                            Category
-                        </h3>
+
+            <!-- Sidebar -->
+            <div class="col-md-10 col-lg-4 p-b-30">
+                <div class="p-l-10 p-rl-0-sr991 p-t-70">
+                    <!-- Category -->
+                    <div class="p-b-60">
+                        <div class="how2 how2-cl4 flex-s-c">
+                            <h3 class="f1-m-2 cl3 tab01-title">
+                                Category
+                            </h3>
+                        </div>
+
+                        <ul class="p-t-35">
+                            @foreach ($contentCategories as $category)
+                                <li class="how-bor3 p-rl-4">
+                                    <a href="{{ route('frontend.articles.all', ['slug' => $category->slug]) }}"
+                                        class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
+                                        {{ $category->name }}
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
                     </div>
-
-                    <ul class="p-t-35">
-                        <li class="how-bor3 p-rl-4">
-                            <a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
-                                Fashion
-                            </a>
-                        </li>
-
-                        <li class="how-bor3 p-rl-4">
-                            <a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
-                                Beauty
-                            </a>
-                        </li>
-
-                        <li class="how-bor3 p-rl-4">
-                            <a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
-                                Street Style
-                            </a>
-                        </li>
-
-                        <li class="how-bor3 p-rl-4">
-                            <a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
-                                Life Style
-                            </a>
-                        </li>
-
-                        <li class="how-bor3 p-rl-4">
-                            <a href="#" class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
-                                DIY & Crafts
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Archive -->
-                <div class="p-b-37">
-                    <div class="how2 how2-cl4 flex-s-c">
-                        <h3 class="f1-m-2 cl3 tab01-title">
-                            Archive
-                        </h3>
-                    </div>
-
-                    <ul class="p-t-32">
-                        <li class="p-rl-4 p-b-19">
-                            <a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">
-                                <span>
-                                    July 2018
-                                </span>
-
-                                <span>
-                                    (9)
-                                </span>
-                            </a>
-                        </li>
-
-                        <li class="p-rl-4 p-b-19">
-                            <a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">
-                                <span>
-                                    June 2018
-                                </span>
-
-                                <span>
-                                    (39)
-                                </span>
-                            </a>
-                        </li>
-
-                        <li class="p-rl-4 p-b-19">
-                            <a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">
-                                <span>
-                                    May 2018
-                                </span>
-
-                                <span>
-                                    (29)
-                                </span>
-                            </a>
-                        </li>
-
-                        <li class="p-rl-4 p-b-19">
-                            <a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">
-                                <span>
-                                    April  2018
-                                </span>
-
-                                <span>
-                                    (35)
-                                </span>
-                            </a>
-                        </li>
-
-                        <li class="p-rl-4 p-b-19">
-                            <a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">
-                                <span>
-                                    March 2018
-                                </span>
-
-                                <span>
-                                    (22)
-                                </span>
-                            </a>
-                        </li>
-
-                        <li class="p-rl-4 p-b-19">
-                            <a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">
-                                <span>
-                                    February 2018
-                                </span>
-
-                                <span>
-                                    (32)
-                                </span>
-                            </a>
-                        </li>
-
-                        <li class="p-rl-4 p-b-19">
-                            <a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">
-                                <span>
-                                    January 2018
-                                </span>
-
-                                <span>
-                                    (21)
-                                </span>
-                            </a>
-                        </li>
-
-                        <li class="p-rl-4 p-b-19">
-                            <a href="#" class="flex-wr-sb-c f1-s-10 text-uppercase cl2 hov-cl10 trans-03">
-                                <span>
-                                    December 2017
-                                </span>
-
-                                <span>
-                                    (26)
-                                </span>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Popular Posts -->
-                <div class="p-b-30">
-                    <div class="how2 how2-cl4 flex-s-c">
-                        <h3 class="f1-m-2 cl3 tab01-title">
-                            Popular Post
-                        </h3>
-                    </div>
-
-                    <ul class="p-t-35">
-                        <li class="flex-wr-sb-s p-b-30">
-                            <a href="#" class="size-w-10 wrap-pic-w hov1 trans-03">
-                                <img src="{{asset('assets/img/mag/popular-post-04.jpg')}}" alt="IMG">
-                            </a>
-
-                            <div class="size-w-11">
-                                <h6 class="p-b-4">
-                                    <a href="blog-detail-02.html" class="f1-s-5 cl3 hov-cl10 trans-03">
-                                        Donec metus orci, malesuada et lectus vitae
-                                    </a>
-                                </h6>
-
-                                <span class="cl8 txt-center p-b-24">
-                                    <a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
-                                        Music
-                                    </a>
-
-                                    <span class="f1-s-3 m-rl-3">
-                                        -
-                                    </span>
-
-                                    <span class="f1-s-3">
-                                        Feb 18
-                                    </span>
-                                </span>
-                            </div>
-                        </li>
-
-                        <li class="flex-wr-sb-s p-b-30">
-                            <a href="#" class="size-w-10 wrap-pic-w hov1 trans-03">
-                                <img src="{{asset('assets/img/mag/popular-post-05.jpg')}}" alt="IMG">
-                            </a>
-
-                            <div class="size-w-11">
-                                <h6 class="p-b-4">
-                                    <a href="blog-detail-02.html" class="f1-s-5 cl3 hov-cl10 trans-03">
-                                        Donec metus orci, malesuada et lectus vitae
-                                    </a>
-                                </h6>
-
-                                <span class="cl8 txt-center p-b-24">
-                                    <a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
-                                        Game
-                                    </a>
-
-                                    <span class="f1-s-3 m-rl-3">
-                                        -
-                                    </span>
-
-                                    <span class="f1-s-3">
-                                        Feb 16
-                                    </span>
-                                </span>
-                            </div>
-                        </li>
-
-                        <li class="flex-wr-sb-s p-b-30">
-                            <a href="#" class="size-w-10 wrap-pic-w hov1 trans-03">
-                                <img src="{{asset('assets/img/mag/popular-post-06.jpg')}}" alt="IMG">
-                            </a>
-
-                            <div class="size-w-11">
-                                <h6 class="p-b-4">
-                                    <a href="blog-detail-02.html" class="f1-s-5 cl3 hov-cl10 trans-03">
-                                        Donec metus orci, malesuada et lectus vitae
-                                    </a>
-                                </h6>
-
-                                <span class="cl8 txt-center p-b-24">
-                                    <a href="#" class="f1-s-6 cl8 hov-cl10 trans-03">
-                                        Celebrity
-                                    </a>
-
-                                    <span class="f1-s-3 m-rl-3">
-                                        -
-                                    </span>
-
-                                    <span class="f1-s-3">
-                                        Feb 12
-                                    </span>
-                                </span>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Tag -->
-                <div>
-                    <div class="how2 how2-cl4 flex-s-c m-b-30">
-                        <h3 class="f1-m-2 cl3 tab01-title">
-                            Tags
-                        </h3>
-                    </div>
-
-                    <div class="flex-wr-s-s m-rl--5">
-                        <a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
-                            Fashion
-                        </a>
-
-                        <a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
-                            Lifestyle
-                        </a>
-
-                        <a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
-                            Denim
-                        </a>
-
-                        <a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
-                            Streetstyle
-                        </a>
-
-                        <a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
-                            Crafts
-                        </a>
-
-                        <a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
-                            Magazine
-                        </a>
-
-                        <a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
-                            News
-                        </a>
-
-                        <a href="#" class="flex-c-c size-h-2 bo-1-rad-20 bocl12 f1-s-1 cl8 hov-btn2 trans-03 p-rl-20 p-tb-5 m-all-5">
-                            Blogs
-                        </a>
-                    </div>	
                 </div>
             </div>
         </div>
     </div>
-</div>
 @endsection

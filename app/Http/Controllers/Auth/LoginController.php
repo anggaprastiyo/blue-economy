@@ -44,7 +44,7 @@ class LoginController extends Controller
             return '/admin';
         }
 
-        return '/home';
+        return '/';
     }
 
     protected function authenticated(Request $request, $user)

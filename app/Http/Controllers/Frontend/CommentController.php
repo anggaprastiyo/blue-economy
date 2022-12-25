@@ -45,7 +45,7 @@ class CommentController extends Controller
     {
         $comment = Comment::create($request->all());
 
-        return redirect()->route('frontend.comments.index');
+        return redirect()->route('frontend.articles.detail', ['id' => $request->content_page_id]);
     }
 
     public function edit(Comment $comment)

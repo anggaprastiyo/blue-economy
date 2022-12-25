@@ -126,6 +126,16 @@
                             </a>
                         </li>
                     @endcan
+                    @can('resource_library_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.resource-libraries.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/resource-libraries") || request()->is("admin/resource-libraries/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-map-marker c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.resourceLibrary.title') }}
+                            </a>
+                        </li>
+                    @endcan
                     @can('comment_access')
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route("admin.comments.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/comments") || request()->is("admin/comments/*") ? "c-active" : "" }}">
