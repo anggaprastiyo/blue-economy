@@ -146,6 +146,16 @@
                             </a>
                         </li>
                     @endcan
+                    @can('sliders_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.sliders.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/sliders") || request()->is("admin/sliders/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-photo c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.sliders.title') }}
+                            </a>
+                        </li>
+                    @endcan
                 </ul>
             </li>
         @endcan
