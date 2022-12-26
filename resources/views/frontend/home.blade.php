@@ -13,21 +13,21 @@
         <div class="carousel-inner">
             <div class="carousel-item active" style="background-image: url('{{asset('assets/img/ocean.jpg')}}')">
             <div class="carousel-caption">
-                <h1>Solusi Interaksi Ekonomi Biru</h1>
+                <h1>BluEconNet, Solusi Interaksi Ekonomi Biru</h1>
                 <h2>Platform digital untuk mendukung koordinasi dan sinergi stakeholder ekonomi biru</h2>
                 <a href="{{url('/admin')}}}" class="btn-get-started scrollto">Bergabung bersama kami</a>
             </div>
             </div>
             <div class="carousel-item" style="background-image: url('{{asset('assets/img/beach1.jpeg')}}')">
             <div class="carousel-caption">
-                <h1>Solusi Interaksi Ekonomi Biru</h1>
+                <h1>BluEconNet, Solusi Interaksi Ekonomi Biru</h1>
                 <h2>Platform digital untuk mendukung koordinasi dan sinergi stakeholder ekonomi biru</h2>
                 <a href="{{url('/admin')}}}" class="btn-get-started scrollto">Bergabung bersama kami</a>
             </div>
             </div>
             <div class="carousel-item" style="background-image: url('{{asset('assets/img/beach2.jpeg')}}')">
             <div class="carousel-caption">
-                <h1>Solusi Interaksi Ekonomi Biru</h1>
+                <h1>BluEconNet, Solusi Interaksi Ekonomi Biru</h1>
                 <h2>Platform digital untuk mendukung koordinasi dan sinergi stakeholder ekonomi biru</h2>
                 <a href="{{url('/admin')}}}" class="btn-get-started scrollto">Bergabung bersama kami</a>
             </div>
@@ -59,7 +59,8 @@
         <h2>Our location</h2>
         <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
       </div>
-      <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1yWpsj6aBnPLYZCJbYGCOfzUG5MjWI8k&ehbc=2E312F" id="our_location"></iframe>
+      <div id="map" class="map"></div>
+      <!-- <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1yWpsj6aBnPLYZCJbYGCOfzUG5MjWI8k&ehbc=2E312F" id="our_location"></iframe> -->
       <!-- <img src="{{ asset('assets/img/map_xl.jpeg') }}"/> -->
     </div>
   </section><!-- End Clients Section -->
@@ -191,8 +192,9 @@
                 <h2>Resource Stakeholder</h2>
                 <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
             </div>
-            <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1yWpsj6aBnPLYZCJbYGCOfzUG5MjWI8k&ehbc=2E312F"
-                id="our_location"></iframe>
+            <div id="map_resource" class="map"></div>
+            <!-- <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1yWpsj6aBnPLYZCJbYGCOfzUG5MjWI8k&ehbc=2E312F"
+                id="our_location"></iframe> -->
             <!-- <img src="{{ asset('assets/img/map_xl.jpeg') }}"/> -->
         </div>
     </section><!-- End Clients Section -->
@@ -301,4 +303,74 @@
     </section><!-- End Portfolio Section -->
 
 
+    <script>
+//   var map;
+//   function initMap() {
+//     map = new google.maps.Map(document.getElementById('map'), {
+//       center: {lat: -34.397, lng: 150.644},
+//       zoom: 8
+//     });
+//   }
+  function initMap() {
+  
+  var locations = [
+    ['<h5>Ibukota Provinsi Aceh</h5>', 5.550176, 95.319263],
+    ['<h5>Ibukota Kab.Aceh Jaya</h5>', 4.727890, 95.601373],
+    ['<h5>Ibukota Abdya</h5>', 3.818570, 96.831841],
+    ['<h5>Ibukota Kotamadya Langsa</h5>', 4.476020, 97.952447],
+    ['<h5>Ibukota Kotamadya Sabang</h5>', 5.909284, 95.304742]  
+  
+  ];
+  var infowindow = new google.maps.InfoWindow();
+ 
+  var options = {
+    zoom: 8, 
+    center: new google.maps.LatLng(4.845582, 96.271539),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+ 
+    // Pembuatan petanya
+  var map = new google.maps.Map(document.getElementById('map'), options);
+ 
+    var marker, i;
+ // proses penambahan marker pada masing-masing lokasi yang berbeda
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map,
+   
+      });
+   
+   // Menampilkan informasi pada masing-masing marker yang diklik 
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent(locations[i][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+    
+    // Pembuatan petanya
+    var map2 = new google.maps.Map(document.getElementById('map_resource'), options);
+    
+    var marker2;
+    // proses penambahan marker pada masing-masing lokasi yang berbeda
+    for (i = 0; i < locations.length; i++) {  
+    marker2 = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        map: map2,
+
+    });
+
+    // Menampilkan informasi pada masing-masing marker yang diklik 
+    google.maps.event.addListener(marker2, 'click', (function(marker2, i) {
+        return function() {
+        infowindow.setContent(locations[i][0]);
+        infowindow.open(map2, marker2);
+        }
+    })(marker2, i));
+    }
+  
+  };
+ </script>
 @endsection

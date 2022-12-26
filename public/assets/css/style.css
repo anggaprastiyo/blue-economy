@@ -2253,6 +2253,10 @@ main {
   width: 60vw;
   height: 600px;
 }
+.map {
+  width: 60vw;
+  height: 600px;
+}
 .carousel-item {
   height: calc(100vh - 90px);
   min-height: 350px;
