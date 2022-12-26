@@ -13,6 +13,7 @@ use App\Models\ContentTag;
 use App\Models\User;
 use Gate;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use Symfony\Component\HttpFoundation\Response;
 use Yajra\DataTables\Facades\DataTables;
@@ -112,6 +113,7 @@ class ContentPageController extends Controller
 
     public function store(StoreContentPageRequest $request)
     {
+        $request->merge(['created_by_id'=> Auth::user()->id]);
         $contentPage = ContentPage::create($request->all());
         $contentPage->categories()->sync($request->input('categories', []));
         $contentPage->tags()->sync($request->input('tags', []));

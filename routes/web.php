@@ -1,11 +1,13 @@
 <?php
 
 // welcome page
+
+use Illuminate\Support\Facades\Artisan;
+
 Route::get('/', 'Frontend\HomeController@index')->name('home');
 Route::get('regulations', 'Frontend\ContentPageController@regulations')->name('frontend.regulations.index');
 Route::get('resource_library', 'Frontend\ContentPageController@resource_library')->name('frontend.resource_library.index');
 Route::get('about', 'Frontend\ContentPageController@about')->name('frontend.about.index');
-
 
 Route::get('articles/detail/{id}', 'Frontend\ContentPageController@detail')->name('frontend.articles.detail');
 Route::get('articles/all', 'Frontend\ContentPageController@all')->name('frontend.articles.all');
@@ -170,4 +172,8 @@ Route::group(['namespace' => 'Auth', 'middleware' => ['auth', '2fa']], function 
         Route::post('two-factor', 'TwoFactorController@check')->name('twoFactor.check');
         Route::get('two-factor/resend', 'TwoFactorController@resend')->name('twoFactor.resend');
     }
+});
+
+Route::get('/linkstorage', function () {
+    Artisan::call('storage:link');
 });

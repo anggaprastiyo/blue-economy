@@ -106,6 +106,7 @@ class ContentPageController extends Controller
 
     public function store(StoreContentPageRequest $request)
     {
+        $request->merge(['publish_status'=> 0]);
         $contentPage = ContentPage::create($request->all());
         $contentPage->categories()->sync($request->input('categories', []));
         $contentPage->tags()->sync($request->input('tags', []));
