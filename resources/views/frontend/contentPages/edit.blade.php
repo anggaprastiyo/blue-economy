@@ -91,21 +91,6 @@
                             <span class="help-block">{{ trans('cruds.contentPage.fields.featured_image_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <label class="required">{{ trans('cruds.contentPage.fields.publish_status') }}</label>
-                            @foreach(App\Models\ContentPage::PUBLISH_STATUS_RADIO as $key => $label)
-                                <div>
-                                    <input type="radio" id="publish_status_{{ $key }}" name="publish_status" value="{{ $key }}" {{ old('publish_status', $contentPage->publish_status) === (string) $key ? 'checked' : '' }} required>
-                                    <label for="publish_status_{{ $key }}">{{ $label }}</label>
-                                </div>
-                            @endforeach
-                            @if($errors->has('publish_status'))
-                                <div class="invalid-feedback">
-                                    {{ $errors->first('publish_status') }}
-                                </div>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.contentPage.fields.publish_status_helper') }}</span>
-                        </div>
-                        <div class="form-group">
                             <button class="btn btn-danger" type="submit">
                                 {{ trans('global.save') }}
                             </button>
