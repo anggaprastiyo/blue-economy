@@ -41,6 +41,9 @@
                                 {{ trans('cruds.resourceLibrary.fields.lat') }}
                             </th>
                             <th>
+                                {{ trans('cruds.resourceLibrary.fields.type') }}
+                            </th>
+                            <th>
                                 &nbsp;
                             </th>
                         </tr>
@@ -68,6 +71,9 @@
                                 </td>
                                 <td>
                                     {{ $resourceLibrary->lat ?? '' }}
+                                </td>
+                                <td>
+                                    {{ $resourceLibrary->type ?? '' }}
                                 </td>
                                 <td>
                                     @can('faq_question_show')

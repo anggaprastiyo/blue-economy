@@ -68,12 +68,10 @@
   <!-- ======= Tabs Section ======= -->
   <section id="tabs" class="tabs">
     <div class="container" data-aos="fade-up">
-
       <div class="section-title">
         <h2>Events</h2>
         <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
       </div>
-
       <div id="carouselId" class="carousel carousel-card slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselId" data-slide-to="0" class="active"></li>
@@ -313,6 +311,15 @@
 //   }
   function initMap() {
   
+  console.log(<?php echo $resources; ?>);
+  var loc = [];
+  var res_data = <?php echo $resources; ?>;
+  
+  for (var j = 0; j < res_data.length; j++) {  
+      var data =['<h5>'+res_data[j].PIC+'<h5>',  res_data[j].lat, res_data[j].long];
+     loc.push(data);
+  }
+  console.log(loc);
   var locations = [
     ['<h5>Ibukota Provinsi Aceh</h5>', 5.550176, 95.319263],
     ['<h5>Ibukota Kab.Aceh Jaya</h5>', 4.727890, 95.601373],
@@ -324,8 +331,8 @@
   var infowindow = new google.maps.InfoWindow();
  
   var options = {
-    zoom: 8, 
-    center: new google.maps.LatLng(4.845582, 96.271539),
+    zoom: 5, 
+    center: new google.maps.LatLng(-0.789275, 113.921327),
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
  
@@ -334,9 +341,9 @@
  
     var marker, i;
  // proses penambahan marker pada masing-masing lokasi yang berbeda
-    for (i = 0; i < locations.length; i++) {  
+    for (i = 0; i < loc.length; i++) {  
       marker = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        position: new google.maps.LatLng(loc[i][1], loc[i][2]),
         map: map,
    
       });
@@ -344,7 +351,7 @@
    // Menampilkan informasi pada masing-masing marker yang diklik 
       google.maps.event.addListener(marker, 'click', (function(marker, i) {
         return function() {
-          infowindow.setContent(locations[i][0]);
+          infowindow.setContent(loc[i][0]);
           infowindow.open(map, marker);
         }
       })(marker, i));
@@ -355,9 +362,9 @@
     
     var marker2;
     // proses penambahan marker pada masing-masing lokasi yang berbeda
-    for (i = 0; i < locations.length; i++) {  
+    for (i = 0; i < loc.length; i++) {  
     marker2 = new google.maps.Marker({
-        position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+        position: new google.maps.LatLng(loc[i][1], loc[i][2]),
         map: map2,
 
     });
@@ -365,7 +372,7 @@
     // Menampilkan informasi pada masing-masing marker yang diklik 
     google.maps.event.addListener(marker2, 'click', (function(marker2, i) {
         return function() {
-        infowindow.setContent(locations[i][0]);
+        infowindow.setContent(loc[i][0]);
         infowindow.open(map2, marker2);
         }
     })(marker2, i));

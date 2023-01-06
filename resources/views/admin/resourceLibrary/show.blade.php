@@ -63,6 +63,14 @@
                             {{ $resourceLibrary->lat }}
                         </td>
                     </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.resourceLibrary.fields.type') }}
+                        </th>
+                        <td>
+                            {{ App\Models\ResourceLibrary::PUBLISH_STATUS_RADIO[$resourceLibrary->type] ?? '' }}
+                        </td>
+                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

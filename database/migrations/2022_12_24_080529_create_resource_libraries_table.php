@@ -20,6 +20,7 @@ class CreateResourceLibrariesTable extends Migration
             $table->string('PIC');
             $table->string('long');
             $table->string('lat');
+            $table->boolean('type');
             $table->timestamps();
             $table->softDeletes();
         });

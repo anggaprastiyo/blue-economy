@@ -66,6 +66,21 @@
             </div>
             
             <div class="form-group">
+                <label>{{ trans('cruds.resourceLibrary.fields.type') }}</label>
+                @foreach(App\Models\ResourceLibrary::PUBLISH_STATUS_RADIO as $key => $label)
+                    <div class="form-check {{ $errors->has('type') ? 'is-invalid' : '' }}">
+                        <input class="form-check-input" type="radio" id="type_{{ $key }}" name="type" value="{{ $key }}" {{ old('type', '0') === (string) $key ? 'checked' : '' }}>
+                        <label class="form-check-label" for="type_{{ $key }}">{{ $label }}</label>
+                    </div>
+                @endforeach
+                @if($errors->has('type'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('type') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.resourceLibrary.fields.type_helper') }}</span>
+            </div>
+            <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
                 </button>
