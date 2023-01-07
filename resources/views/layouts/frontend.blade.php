@@ -295,6 +295,8 @@
 <!-- Template Main JS File -->
 <script src="{{asset('assets/js/utils.js')}}"></script>
 <script src="{{asset('assets/js/main.js')}}"></script>
+ 
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyADOT1RY9jUndfdcbIQ-AOPS2jet5MAa80&callback=initMap" async defer></script>
 @yield('scripts')
 
 </html>

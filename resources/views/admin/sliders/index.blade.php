@@ -1,9 +1,9 @@
 @extends('layouts.admin')
 @section('content')
-@can('content_tag_create')
+@can('sliders_access')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.content-tags.create') }}">
+            <a class="btn btn-success" href="{{ route('admin.sliders.create') }}">
                 {{ trans('global.add') }} {{ trans('cruds.sliders.title_singular') }}
             </a>
         </div>
@@ -22,13 +22,13 @@
 
                     </th>
                     <th>
-                        {{ trans('cruds.contentTag.fields.id') }}
+                        {{ trans('cruds.sliders.fields.title') }}
                     </th>
                     <th>
-                        {{ trans('cruds.contentTag.fields.title') }}
+                        {{ trans('cruds.sliders.fields.subtitle') }}
                     </th>
                     <th>
-                        {{ trans('cruds.contentTag.fields.file_name') }}
+                        {{ trans('cruds.sliders.fields.file_name') }}
                     </th>
                     <th>
                         &nbsp;

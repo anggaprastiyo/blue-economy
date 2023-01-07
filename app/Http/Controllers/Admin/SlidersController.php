@@ -50,6 +50,9 @@ class SlidersController extends Controller
             $table->editColumn('title', function ($row) {
                 return $row->title ? $row->title : '';
             });
+            $table->editColumn('subtitle', function ($row) {
+                return $row->title ? $row->title : '';
+            });
             $table->editColumn('file_name', function ($row) {
                 return $row->file_name ? $row->file_name : '';
             });
@@ -59,7 +62,7 @@ class SlidersController extends Controller
             return $table->make(true);
         }
 
-        return view('admin.contentCategories.index');
+        return view('admin.sliders.index');
     }
 
     /**
@@ -70,6 +73,9 @@ class SlidersController extends Controller
     public function create()
     {
         //
+        abort_if(Gate::denies('sliders_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        return view('admin.sliders.create');
     }
 
     /**

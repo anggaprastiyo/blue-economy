@@ -11,6 +11,11 @@ class ResourceLibrary extends Model
     use HasFactory;
     use SoftDeletes;
 
+    public const PUBLISH_STATUS_RADIO = [
+        '0' => 'Private',
+        '1' => 'Public',
+    ];
+
     public $table = 'resource_libraries';
 
     protected $dates = [
@@ -24,6 +29,8 @@ class ResourceLibrary extends Model
         'alamat',
         'pic',
         'long',
-        'lat'
+        'lat',
+        'lat',
+        'type'
     ];
 }
