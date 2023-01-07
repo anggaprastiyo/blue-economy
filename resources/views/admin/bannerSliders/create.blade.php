@@ -3,54 +3,34 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.create') }} {{ trans('cruds.event.title_singular') }}
+        {{ trans('global.create') }} {{ trans('cruds.banner_slider.title_singular') }}
     </div>
 
     <div class="card-body">
-        <form method="POST" action="{{ route("admin.events.store") }}" enctype="multipart/form-data">
+        <form method="POST" action="{{ route("admin.banner_sliders.store") }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label class="required" for="title">{{ trans('cruds.event.fields.title') }}</label>
+                <label class="required" for="title">{{ trans('cruds.banner_slider.fields.title') }}</label>
                 <input class="form-control {{ $errors->has('title') ? 'is-invalid' : '' }}" type="text" name="title" id="title" value="{{ old('title', '') }}" required>
                 @if($errors->has('title'))
                     <div class="invalid-feedback">
                         {{ $errors->first('title') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.event.fields.title_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.banner_slider.fields.title_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="detail">{{ trans('cruds.event.fields.detail') }}</label>
-                <textarea class="form-control ckeditor {{ $errors->has('detail') ? 'is-invalid' : '' }}" name="detail" id="detail">{!! old('detail') !!}</textarea>
-                @if($errors->has('detail'))
+                <label for="detail">{{ trans('cruds.banner_slider.fields.text') }}</label>
+                <textarea class="form-control ckeditor {{ $errors->has('text') ? 'is-invalid' : '' }}" name="text" id="text">{!! old('text') !!}</textarea>
+                @if($errors->has('text'))
                     <div class="invalid-feedback">
-                        {{ $errors->first('detail') }}
+                        {{ $errors->first('text') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.event.fields.detail_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.banner_slider.fields.text_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="location">{{ trans('cruds.event.fields.location') }}</label>
-                <textarea class="form-control ckeditor {{ $errors->has('location') ? 'is-invalid' : '' }}" name="location" id="location">{!! old('location') !!}</textarea>
-                @if($errors->has('location'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('location') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.event.fields.location_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <label class="required" for="date">{{ trans('cruds.event.fields.date') }}</label>
-                <input class="form-control datetime {{ $errors->has('date') ? 'is-invalid' : '' }}" type="text" name="date" id="date" value="{{ old('date') }}" required>
-                @if($errors->has('date'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('date') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.event.fields.date_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <label for="featured_image">{{ trans('cruds.event.fields.featured_image') }}</label>
+                <label for="featured_image">{{ trans('cruds.banner_slider.fields.featured_image') }}</label>
                 <div class="needsclick dropzone {{ $errors->has('featured_image') ? 'is-invalid' : '' }}" id="featured_image-dropzone">
                 </div>
                 @if($errors->has('featured_image'))
@@ -58,11 +38,11 @@
                         {{ $errors->first('featured_image') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.event.fields.featured_image_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.banner_slider.fields.featured_image_helper') }}</span>
             </div>
             <div class="form-group">
-                <label>{{ trans('cruds.event.fields.publish_status') }}</label>
-                @foreach(App\Models\Event::PUBLISH_STATUS_RADIO as $key => $label)
+                <label>{{ trans('cruds.banner_slider.fields.publish_status') }}</label>
+                @foreach(App\Models\BannerSlider::PUBLISH_STATUS_RADIO as $key => $label)
                     <div class="form-check {{ $errors->has('publish_status') ? 'is-invalid' : '' }}">
                         <input class="form-check-input" type="radio" id="publish_status_{{ $key }}" name="publish_status" value="{{ $key }}" {{ old('publish_status', '0') === (string) $key ? 'checked' : '' }}>
                         <label class="form-check-label" for="publish_status_{{ $key }}">{{ $label }}</label>
@@ -73,7 +53,7 @@
                         {{ $errors->first('publish_status') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.event.fields.publish_status_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.banner_slider.fields.publish_status_helper') }}</span>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">
@@ -100,7 +80,7 @@
               return new Promise(function(resolve, reject) {
                 // Init request
                 var xhr = new XMLHttpRequest();
-                xhr.open('POST', '{{ route('admin.events.storeCKEditorImages') }}', true);
+                xhr.open('POST', '{{ route('admin.banner_sliders.storeCKEditorImages') }}', true);
                 xhr.setRequestHeader('x-csrf-token', window._token);
                 xhr.setRequestHeader('Accept', 'application/json');
                 xhr.responseType = 'json';
@@ -155,7 +135,7 @@
 
 <script>
     Dropzone.options.featuredImageDropzone = {
-    url: '{{ route('admin.events.storeMedia') }}',
+    url: '{{ route('admin.banner_sliders.storeMedia') }}',
     maxFilesize: 2, // MB
     acceptedFiles: '.jpeg,.jpg,.png,.gif',
     maxFiles: 1,
