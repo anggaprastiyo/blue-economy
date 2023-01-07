@@ -93,6 +93,13 @@ class ContentPageController extends Controller
         return view('frontend.regulations.index')->with(compact('regulation'));
     }
 
+    public function reference()
+    {
+        // fetch About Article
+        $reference = ContentPageRepository::getBySlug('reference');
+        return view('frontend.reference.index')->with(compact('reference'));
+    }
+
     public function create()
     {
         abort_if(Gate::denies('content_page_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');

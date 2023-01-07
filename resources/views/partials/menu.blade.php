@@ -86,6 +86,18 @@
                     {{ trans('cruds.contentManagement.title') }}
                 </a>
                 <ul class="c-sidebar-nav-dropdown-items">
+
+                    @can('banner_slider_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.banner_sliders.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/banner_sliders") || request()->is("admin/banner_sliders/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-image c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.banner_slider.title') }}
+                            </a>
+                        </li>
+                    @endcan
+
                     @can('content_category_access')
                         <li class="c-sidebar-nav-item">
                             <a href="{{ route("admin.content-categories.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/content-categories") || request()->is("admin/content-categories/*") ? "c-active" : "" }}">

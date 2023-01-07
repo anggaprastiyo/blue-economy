@@ -8,6 +8,7 @@ Route::get('/', 'Frontend\HomeController@index')->name('home');
 Route::get('regulations', 'Frontend\ContentPageController@regulations')->name('frontend.regulations.index');
 Route::get('resource_library', 'Frontend\ContentPageController@resource_library')->name('frontend.resource_library.index');
 Route::get('about', 'Frontend\ContentPageController@about')->name('frontend.about.index');
+Route::get('reference', 'Frontend\ContentPageController@reference')->name('frontend.reference.index');
 
 Route::get('articles/detail/{id}', 'Frontend\ContentPageController@detail')->name('frontend.articles.detail');
 Route::get('articles/all', 'Frontend\ContentPageController@all')->name('frontend.articles.all');
@@ -49,7 +50,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::delete('content-tags/destroy', 'ContentTagController@massDestroy')->name('content-tags.massDestroy');
     Route::resource('content-tags', 'ContentTagController');
 
-    // Slider 
+    // Slider
     Route::delete('sliders/destroy', 'SlidersController@massDestroy')->name('sliders.massDestroy');
     Route::resource('sliders', 'SlidersController');
 
@@ -79,6 +80,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('events/media', 'EventController@storeMedia')->name('events.storeMedia');
     Route::post('events/ckmedia', 'EventController@storeCKEditorImages')->name('events.storeCKEditorImages');
     Route::resource('events', 'EventController');
+
+    // Banner Slider
+    Route::delete('banner_sliders/destroy', 'BannerSliderController@massDestroy')->name('banner_sliders.massDestroy');
+    Route::post('banner_sliders/media', 'BannerSliderController@storeMedia')->name('banner_sliders.storeMedia');
+    Route::post('banner_sliders/ckmedia', 'BannerSliderController@storeCKEditorImages')->name('banner_sliders.storeCKEditorImages');
+    Route::resource('banner_sliders', 'BannerSliderController');
 
     // Comment
     Route::delete('comments/destroy', 'CommentController@massDestroy')->name('comments.massDestroy');

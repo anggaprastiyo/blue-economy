@@ -21,8 +21,7 @@ class HomeController
             ->orderBy('created_at', 'DESC')
             ->get();
 
-        $resources = ResourceLibrary::where('type',1)
-            ->get();
+        $resources = ResourceLibrary::all();
         // dd($resource);
         $contentCategories = ContentCategory::get()->whereNotIn('slug', ['about', 'regulation']);
 
