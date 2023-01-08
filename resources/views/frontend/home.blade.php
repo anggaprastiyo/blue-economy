@@ -13,8 +13,7 @@
         <div class="carousel-inner">
             <div class="carousel-item active" style="background-image: url('{{asset('assets/img/ocean.jpg')}}')">
                 <div class="carousel-caption">
-                    <h1>BluEconNet, Solusi Interaksi Ekonomi Biru</h1>
-                    <h2>Platform digital untuk mendukung koordinasi dan sinergi stakeholder ekonomi biru</h2>
+                    <h1>BluEconNet, Solusi Interaksi Ekonomi Biru</h1>k                <h2>Platform digital untuk mendukung koordinasi dan sinergi stakeholder ekonomi biru</h2>
                     <a href="{{url('/admin')}}}" class="btn-get-started scrollto">Bergabung bersama kami</a>
                 </div>
             </div>
