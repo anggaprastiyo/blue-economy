@@ -4,7 +4,7 @@
     <!-- ======= Hero Section ======= -->
     <!-- <section id="hero" class="d-flex align-items-center"> -->
 
-    <div id="carouselHome" class="carousel slide" data-bs-ride="carousel">
+    <!-- <div id="carouselHome" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-indicators">
             <button type="button" data-bs-target="#carouselHome" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
             <button type="button" data-bs-target="#carouselHome" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -32,6 +32,47 @@
                     <a href="{{url('/admin')}}}" class="btn-get-started scrollto">Bergabung bersama kami</a>
                 </div>
             </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselHome" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselHome" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        </button>
+    </div> -->
+
+    <div id="carouselHome" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+            @if(isset($sliders))
+                <?php $no =0; ?>
+                @foreach($sliders as $slider)
+                    @if($no ==0)
+                    <button type="button" data-bs-target="#carouselHome" data-bs-slide-to="{{$no}}" class="active" aria-current="true" aria-label="{{$slider->text}}"></button>
+                    @else
+                    <button type="button" data-bs-target="#carouselHome" data-bs-slide-to="{{$no}}" aria-label="Slide 2"></button>
+                    @endif
+                    <?php $no++; ?>
+                @endforeach
+            @endif
+        </div>
+        <div class="carousel-inner">
+            @if(isset($sliders))
+                <?php $no =1; ?>
+                @foreach($sliders as $slider)
+                    @if($no ==1)
+                    <div class="carousel-item active" style="background-image: url('<?php echo $slider->getFeaturedImageAttribute()->url ; ?>')">
+                    @else
+                    <div class="carousel-item" style="background-image: url('<?php echo $slider->getFeaturedImageAttribute()->url ; ?>')">
+                    @endif
+                        <div class="carousel-caption">
+                            <h1>{{$slider->title}}</h1>
+                            <h2>{{$slider->text}}</h2>
+                            <a href="{{url('/admin')}}}" class="btn-get-started scrollto">Bergabung bersama kami</a>
+                        </div>
+                    </div>
+                    <?php $no++; ?>
+                @endforeach
+            @endif
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselHome" data-bs-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -307,7 +348,7 @@
             var res_data = <?php echo $resources; ?>;
 
             for (var j = 0; j < res_data.length; j++) {
-                var data = ['<h5>' + res_data[j].PIC + '<h5>', res_data[j].lat, res_data[j].long];
+                var data = ['<h5>' + res_data[j].PIC + '<h5>', res_data[j].long, res_data[j].lat];
                 loc.push(data);
             }
             console.log(loc);

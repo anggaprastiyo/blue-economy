@@ -12,6 +12,7 @@ use App\Models\ContentCategory;
 use App\Models\ContentPage;
 use App\Models\ContentTag;
 use App\Models\User;
+use App\Models\ResourceLibrary;
 use App\Repositories\ContentPageRepository;
 use Gate;
 use Illuminate\Http\Request;
@@ -83,7 +84,9 @@ class ContentPageController extends Controller
 
     public function resource_library()
     {
-        return view('frontend.resource_library.index');
+
+        $resources = ResourceLibrary::all();
+        return view('frontend.resource_library.index')->with(compact('resources'));
     }
 
     public function regulations()

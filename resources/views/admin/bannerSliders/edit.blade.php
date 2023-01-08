@@ -24,7 +24,7 @@
                 </div>
                 <div class="form-group">
                     <label for="text">{{ trans('cruds.banner_slider.fields.text') }}</label>
-                    <textarea class="form-control ckeditor {{ $errors->has('text') ? 'is-invalid' : '' }}" name="text"
+                    <textarea class="form-control {{ $errors->has('text') ? 'is-invalid' : '' }}" name="text"
                               id="text">{!! old('text', $bannerSlider->text) !!}</textarea>
                     @if($errors->has('text'))
                         <div class="invalid-feedback">

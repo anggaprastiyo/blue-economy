@@ -18,13 +18,19 @@
                             Nama
                         </th>
                         <th>
-                            Jabatan
+                            Alamat
                         </th>
                         <th>
-                            
+                            PIC
                         </th>
                         <th>
-                           
+                           Longitude
+                        </th>
+                        <th>
+                           Latitude
+                        </th>
+                        <th>
+                           Type
                         </th>
                         <th>
                             &nbsp;
@@ -43,6 +49,16 @@
                             <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                         </td>
                         <td>
+                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        </td>
+                        <td>
+                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        </td>
+                        <td>
+                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
+                        </td>
+                        <td>
+                            <input class="search" type="text" placeholder="{{ trans('global.search') }}">
                         </td>
                         <td>
                             <select class="search" strict="true">
@@ -52,30 +68,44 @@
                                 @endforeach
                             </select>
                         </td>
-                        <td>
-                        </td>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr data-entry-id="asdas">
-                        <td>
-                            1
-                        </td>
-                        <td>
-                           Stackholder 1
-                        </td>
-                        <td>
-                            
-                        </td>
-                        <td>
-                        </td>
-                        <td>
-                            
-                        </td>
-                        <td>
-                        </td>
+                @if (isset($resources))
+                    <?php $no = 1; ?>
+                    @foreach($resources as $resource)
+                        <tr data-entry-id="asdas">
+                            <td>
+                                <?php echo $no; ?>
+                            </td>
+                            <td>
+                                {{ $resource->nama }}
+                            </td>
+                            <td>
+                                {{ $resource->alamat }}
+                            </td>
+                            <td>
+                                {{ $resource->PIC }}
+                            </td>
+                            <td>
+                                {{ $resource->long }}
+                            </td>
+                            <td>
+                                {{ $resource->lat }}
+                            </td>
+                            <td>
+                                @if($resource->type == 1) {{'Public'}}
+                                @else  {{'Private'}}
+                                @endif
+                            </td>
+                            <td>
+                                
+                            </td>
 
-                    </tr>
+                        </tr>
+                        <?php $no++; ?>
+                    @endforeach
+                @endif
                 </tbody>
             </table>
         </div>
