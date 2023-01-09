@@ -134,7 +134,7 @@
     {{--  <section id="locations" class="locations">
         <div class="container" data-aos="zoom-in">
             <div class="section-title">
-                <h2>Our location</h2>
+                <h2>Stakeholder</h2>
                 <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
             </div>
             <div id="map" class="map"></div>
