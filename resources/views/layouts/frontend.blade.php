@@ -46,7 +46,7 @@
     <!-- ======= Header ======= -->
     <header id="header" class="fixed-top d-flex align-items-center">
         <div class="container d-flex align-items-center">
-            <h1 class="logo me-auto"><a href="index.html">Blue Economy<span>.</span></a></h1>
+            <h1 class="logo me-auto"><a href="{{ route('home') }}">Blue Economy<span>.</span></a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo me-auto"><img src="{{asset('assets/img/logo.png')}}" alt=""></a>-->
 
@@ -244,30 +244,31 @@
                 <div class="col-lg-3 col-md-6 footer-contact">
                     <h3>Blue Economy<span>.</span></h3>
                     <p>
-                        A108 Adam Street <br>
+                        {{--  A108 Adam Street <br>
                         New York, NY 535022<br>
                         United States <br><br>
-                        <strong>Phone:</strong> +1 5589 55488 55<br>
-                        <strong>Email:</strong> info@example.com<br>
+                        <strong>Phone:</strong> +1 5589 55488 55<br>  --}}
+                        <strong>Email:</strong> blue.economy.team@gmail.com<br>
                     </p>
                 </div>
 
                 <div class="col-lg-4 col-md-6 footer-links">
                     <h4>Blue Economy Community</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Discussions</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Articles</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="#">Events</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{ route('frontend.resource_library.index') }}">Resource Library</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{ route('frontend.reference.index') }}">Reference</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{ route('frontend.articles.all') }}">Articles</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{ route('frontend.events-page.all') }}">Events</a></li>
                     </ul>
                 </div>
 
-                <div class="col-lg-4 col-md-6 footer-newsletter">
+                {{--  <div class="col-lg-4 col-md-6 footer-newsletter">
                     <h4>Join Our Newsletter</h4>
                     <p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna</p>
                     <form action="" method="post">
                         <input type="email" name="email"><input type="submit" value="Subscribe">
                     </form>
-                </div>
+                </div>  --}}
 
             </div>
         </div>
@@ -287,13 +288,13 @@
                 Designed by <a href="#">Blue Economy</a>
             </div>
         </div>
-        <div class="social-links text-center text-md-end pt-3 pt-md-0">
+        {{--  <div class="social-links text-center text-md-end pt-3 pt-md-0">
             <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
             <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
             <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
             <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
             <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
-        </div>
+        </div>  --}}
     </div>
 </footer><!-- End Footer -->
 </body>

@@ -254,6 +254,7 @@ return [
             'lat_helper' => ' ',
             'type' => 'Type',
             'type_helper' => ' ',
+            'publish_status' => 'Publish Status',
             'created_at' => 'Created at',
             'created_at_helper' => ' ',
             'updated_at' => 'Updated At',

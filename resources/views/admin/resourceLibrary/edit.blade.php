@@ -10,7 +10,7 @@
         <form method="POST" action="{{ route("admin.resource-libraries.update", [$resourceLibrary->id]) }}" enctype="multipart/form-data">
             @method('PUT')
             @csrf
-            
+
             <div class="form-group">
                 <label class="required" for="nama">{{ trans('cruds.resourceLibrary.fields.nama') }}</label>
                 <input class="form-control {{ $errors->has('nama') ? 'is-invalid' : '' }}" type="text" name="nama" id="nama" value="{{ old('nama', $resourceLibrary->nama) }}" required>
@@ -70,7 +70,7 @@
                 <label>{{ trans('cruds.resourceLibrary.fields.publish_status') }}</label>
                 @foreach(App\Models\ResourceLibrary::PUBLISH_STATUS_RADIO as $key => $label)
                     <div class="form-check {{ $errors->has('type') ? 'is-invalid' : '' }}">
-                        <input class="form-check-input" type="radio" id="type_{{ $key }}" name="type" value="{{ $key }}" {{ old('type', $event->type) === (string) $key ? 'checked' : '' }}>
+                        <input class="form-check-input" type="radio" id="type_{{ $key }}" name="type" value="{{ $key }}" {{ old('type', $resourceLibrary->type) === (string) $key ? 'checked' : '' }}>
                         <label class="form-check-label" for="type_{{ $key }}">{{ $label }}</label>
                     </div>
                 @endforeach
@@ -81,7 +81,7 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.resourceLibrary.fields.type_helper') }}</span>
             </div>
-            
+
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}
