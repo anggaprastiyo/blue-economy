@@ -122,7 +122,7 @@ class User extends Authenticatable implements HasMedia
 
     public function getIsAdminAttribute()
     {
-        return $this->roles()->where('id', 1)->exists();
+        return $this->roles()->whereIn('id', [1,3])->exists();
     }
 
     public function registerMediaConversions(Media $media = null): void

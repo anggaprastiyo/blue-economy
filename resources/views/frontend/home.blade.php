@@ -81,7 +81,57 @@
         </button>
     </div>
 
-    <section id="locations" class="locations">
+    <!-- ======= Tabs Section ======= -->
+    <section id="tabs" class="tabs">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-title">
+                <h2>Events</h2>
+                <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
+            </div>
+
+            <div id="carouselId" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselId" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselId" data-slide-to="1"></li>
+                    <li data-target="#carouselId" data-slide-to="2"></li>
+                </ol>
+                <div class="carousel-inner row w-100 mx-auto">
+                    @if (isset($events))
+                        @foreach ($events as $event)
+                            <div class="carousel-item active col-md-4">
+
+                                <div class="card">
+                                    <img class="card-img-top" src="{{ $event->getFeaturedImageAttribute()->url }}"
+                                         alt="Card image cap" style="height:150px">
+                                    <div class="card-body">
+                                        <h5 class="card-title text-uppercase"><b>{{ $event->title }}</b></h5>
+                                        <p class="card-text">{!! substr($event->detail, 0, 50) . '...' !!}</p>
+                                    </div>
+                                    <ul class="list-group list-group-flush">
+                                        <li class="list-group-item">{{ $event->date }}</li>
+                                    </ul>
+                                    <div class="card-body">
+                                        <a href="#" class="btn btn-block btn-info">Show</a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    @endif
+                </div>
+                <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </section><!-- End Tabs Section -->
+
+    {{--  <section id="locations" class="locations">
         <div class="container" data-aos="zoom-in">
             <div class="section-title">
                 <h2>Our location</h2>
@@ -91,10 +141,11 @@
             <!-- <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1yWpsj6aBnPLYZCJbYGCOfzUG5MjWI8k&ehbc=2E312F" id="our_location"></iframe> -->
             <!-- <img src="{{ asset('assets/img/map_xl.jpeg') }}"/> -->
         </div>
-    </section><!-- End Clients Section -->
+    </section>  --}}
+    <!-- End Clients Section -->
 
     <!-- ======= Tabs Section ======= -->
-    <section id="tabs" class="tabs">
+    {{--  <section id="tabs" class="tabs">
         <div class="container" data-aos="fade-up">
             <div class="section-title">
                 <h2>Events</h2>
@@ -127,7 +178,7 @@
                             </div>
         @endforeach
         @endif
-    </section>
+    </section>  --}}
 
     <!-- ======= Clients Section ======= -->
     <!--  <section id="clients" class="clients">
@@ -226,55 +277,7 @@
         </div>
     </section><!-- End Clients Section -->
 
-    <!-- ======= Tabs Section ======= -->
-    <section id="tabs" class="tabs">
-        <div class="container" data-aos="fade-up">
-
-            <div class="section-title">
-                <h2>Events</h2>
-                <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
-            </div>
-
-            <div id="carouselId" class="carousel slide" data-ride="carousel">
-                <ol class="carousel-indicators">
-                    <li data-target="#carouselId" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselId" data-slide-to="1"></li>
-                    <li data-target="#carouselId" data-slide-to="2"></li>
-                </ol>
-                <div class="carousel-inner row w-100 mx-auto">
-                    @if (isset($events))
-                        @foreach ($events as $event)
-                            <div class="carousel-item active col-md-4">
-
-                                <div class="card">
-                                    <img class="card-img-top" src="{{ $event->getFeaturedImageAttribute()->url }}"
-                                         alt="Card image cap" style="height:150px">
-                                    <div class="card-body">
-                                        <h5 class="card-title text-uppercase"><b>{{ $event->title }}</b></h5>
-                                        <p class="card-text">{!! substr($event->detail, 0, 50) . '...' !!}</p>
-                                    </div>
-                                    <ul class="list-group list-group-flush">
-                                        <li class="list-group-item">{{ $event->date }}</li>
-                                    </ul>
-                                    <div class="card-body">
-                                        <a href="#" class="btn btn-block btn-info">Show</a>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    @endif
-                </div>
-                <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
-                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
-                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">Next</span>
-                </a>
-            </div>
-        </div>
-    </section><!-- End Tabs Section -->
+    
 
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
