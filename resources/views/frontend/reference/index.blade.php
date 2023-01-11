@@ -4,7 +4,7 @@
     <section>
         <div class="container" style="margin-top: 70px">
             <div class="section-title">
-                <h2>Reference</h2>
+                <h2>Referensi</h2>
                 <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
             </div>
             <div class="row" id="about">

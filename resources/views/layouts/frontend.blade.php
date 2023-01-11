@@ -47,25 +47,23 @@
     <header id="header" class="fixed-top d-flex align-items-center">
         <div class="container d-flex align-items-center">
             <h1 class="logo me-auto"><a href="{{ route('home') }}">Blue Economy<span>.</span></a></h1>
-            <!-- Uncomment below if you prefer to use an image logo -->
-            <!-- <a href="index.html" class="logo me-auto"><img src="{{asset('assets/img/logo.png')}}" alt=""></a>-->
 
             <nav id="navbar" class="navbar order-last order-lg-0">
                 <ul>
-                    <li><a class="nav-link scrollto active" href="{{ route('home') }}">Home</a></li>
-                    <li><a class="nav-link scrollto" href="{{ route('frontend.about.index') }}">About</a></li>
-                    <li><a class="nav-link scrollto" href="{{ route('frontend.regulations.index') }}">Regulation</a>
+                    <li><a class="nav-link scrollto active" href="{{ route('home') }}">Beranda</a></li>
+                    <li><a class="nav-link scrollto" href="{{ route('frontend.about.index') }}">Tentang Kami</a></li>
+                    <li><a class="nav-link scrollto" href="{{ route('frontend.regulations.index') }}">Regulasi</a>
                     </li>
-                    <li class="dropdown"><a href="#"><span>Blue Economy Community</span> <i class="bi bi-chevron-down"></i></a>
+                    <li class="dropdown"><a href="#"><span>Komunitas Blue Economy</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="{{ route('frontend.events-page.all') }}">Events</a></li>
-                            <li><a href="{{ route('frontend.articles.all') }}">Articles</a></li>
+                            <li><a href="{{ route('frontend.events-page.all') }}">Kegiatan</a></li>
+                            <li><a href="{{ route('frontend.articles.all') }}">Artikel</a></li>
                         </ul>
                     </li>
-                    <li class="dropdown"><a href="#"><span>Resource Library</span> <i class="bi bi-chevron-down"></i></a>
+                    <li class="dropdown"><a href="#"><span>Sumber Daya</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
-                            <li><a href="{{ route('frontend.resource_library.index') }}">Resource Library</a></li>
-                            <li><a href="{{ route('frontend.reference.index') }}">Reference</a></li>
+                            <li><a href="{{ route('frontend.resource_library.index') }}">Sumber Daya</a></li>
+                            <li><a href="{{ route('frontend.reference.index') }}">Referensi</a></li>
                         </ul>
                     </li>
                     <i class="bi bi-list mobile-nav-toggle"></i>
@@ -255,10 +253,10 @@
                 <div class="col-lg-4 col-md-6 footer-links">
                     <h4>Blue Economy Community</h4>
                     <ul>
-                        <li><i class="bx bx-chevron-right"></i> <a href="{{ route('frontend.resource_library.index') }}">Resource Library</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="{{ route('frontend.reference.index') }}">Reference</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="{{ route('frontend.articles.all') }}">Articles</a></li>
-                        <li><i class="bx bx-chevron-right"></i> <a href="{{ route('frontend.events-page.all') }}">Events</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{ route('frontend.resource_library.index') }}">Sumber Daya</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{ route('frontend.reference.index') }}">Referensi</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{ route('frontend.articles.all') }}">Artikel</a></li>
+                        <li><i class="bx bx-chevron-right"></i> <a href="{{ route('frontend.events-page.all') }}">Kegiatan</a></li>
                     </ul>
                 </div>
 

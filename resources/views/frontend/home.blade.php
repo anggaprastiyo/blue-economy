@@ -237,22 +237,22 @@
                         <div class="row">
                             <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
                                 <i class="bx bx-images"></i>
-                                <h4>Discussions</h4>
+                                <h4>Diskusi</h4>
                                 <p>Hubungi stakeholder lain secara langsung melalui Blue Economy</p>
                             </div>
                             <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
                                 <i class="bx bx-shield"></i>
-                                <h4>Events</h4>
-                                <p>Daftar event yang berkaitan dengan ekonomi biru</p>
+                                <h4>Kegiatan</h4>
+                                <p>Daftar kegiatan yang berkaitan dengan ekonomi biru</p>
                             </div>
                             <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
                                 <i class="bx bx-cube-alt"></i>
-                                <h4>Articles</h4>
+                                <h4>Artikel</h4>
                                 <p>Artikel-artikel dari stakeholder terkait ekonomi biru</p>
                             </div>
                             <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
                                 <i class="bx bx-receipt"></i>
-                                <h4>Resource Library</h4>
+                                <h4>Sumber Daya</h4>
                                 <p>Daftar stakeholder ekonomi biru</p>
                             </div>
                         </div>
