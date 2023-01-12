@@ -62,8 +62,12 @@
                     </li>
                     <li class="dropdown"><a href="#"><span>Sumber Daya</span> <i class="bi bi-chevron-down"></i></a>
                         <ul>
+                        @guest
+                            <li><a href="{{ route('frontend.reference.index') }}">Referensi</a></li>
+                        @else
                             <li><a href="{{ route('frontend.resource_library.index') }}">Sumber Daya</a></li>
                             <li><a href="{{ route('frontend.reference.index') }}">Referensi</a></li>
+                        @endguest
                         </ul>
                     </li>
                     <i class="bi bi-list mobile-nav-toggle"></i>

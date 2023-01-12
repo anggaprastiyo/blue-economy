@@ -7,6 +7,11 @@ use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyEventRequest;
 use App\Http\Requests\StoreEventRequest;
 use App\Http\Requests\UpdateEventRequest;
+use App\Models\ContentCategory;
+use App\Models\ContentPage;
+use App\Models\ContentTag;
+use App\Models\ResourceLibrary;
+use App\Repositories\ContentPageRepository;
 use App\Models\Event;
 use App\Models\User;
 use Gate;
@@ -29,11 +34,15 @@ class EventController extends Controller
         return view('frontend.events.index', compact('events', 'users'));
     }
 
-    public function detail()
+    public function detail($id)
     {
-        return view('frontend.events.detail');
+        $article = ContentPageRepository::getById($id);
+        $contentCategories = ContentCategory::get()->whereNotIn('slug', ['about', 'regulation']);
+        $events = Event::where('id', $id)
+            ->get();
+        return view('frontend.events.detail')->with(compact('events', 'contentCategories', 'article'));
     }
-
+    
     public function all()
     {
         $events = Event::with(['created_by', 'media'])->simplePaginate(10);
