@@ -134,6 +134,27 @@
                         </ul>
                     </div>
                 </div>
+                <div class="p-l-10 p-rl-0-sr991 p-t-70">
+                    <!-- Category -->
+                    <div class="p-b-60">
+                        <div class="how2 how2-cl4 flex-s-c">
+                            <h3 class="f1-m-2 cl3 tab01-title">
+                                Archive
+                            </h3>
+                        </div>
+
+                        <ul class="p-t-35">
+                            @foreach ($archives as $archive)
+                                <li class="how-bor3 p-rl-4">
+                                    <a href="{{ route('frontend.articles.all', ['slug' => $category->slug]) }}"
+                                        class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
+                                        {{ App\Models\ContentPage::MONTH[$archive->month] ?? '' }} {{ $archive->year }} ({{ $archive->count }} ) 
+                                    </a>
+                                </li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

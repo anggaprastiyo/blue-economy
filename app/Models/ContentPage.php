@@ -20,6 +20,11 @@ class ContentPage extends Model implements HasMedia
     use Auditable;
     use HasFactory;
 
+    public const MONTH = [
+        '1' =>'January',
+        '2' =>'February'
+    ];
+
     public const PUBLISH_STATUS_RADIO = [
         '0' => 'Pending',
         '1' => 'Published',

@@ -15,6 +15,7 @@ use App\Models\User;
 use App\Models\ResourceLibrary;
 use App\Repositories\ContentPageRepository;
 use Gate;
+use DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Session;
@@ -43,10 +44,11 @@ class ContentPageController extends Controller
     public function detail($id)
     {
         $user = Auth::user();
+        $archives = DB::select("SELECT MONTH(created_at) month, YEAR(created_at) year, count(*) count FROM content_pages GROUP BY MONTH(created_at), YEAR(created_at);");
         $article = ContentPageRepository::getById($id);
         $contentCategories = ContentCategory::get()->whereNotIn('slug', ['about', 'regulation']);
         $comments = Comment::where('content_page_id', $id)->get();
-        return view('frontend.contentPages.detail')->with(compact('article', 'contentCategories', 'user', 'comments'));
+        return view('frontend.contentPages.detail')->with(compact('article', 'contentCategories', 'user', 'comments', 'archives'));
     }
 
     public function all(Request $request)

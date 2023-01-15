@@ -112,7 +112,7 @@
                                         <li class="list-group-item">{{ $event->date }}</li>
                                     </ul>
                                     <div class="card-body">
-                                        <a href="#" class="btn btn-block btn-info">Show</a>
+                                        <a href="{{ url('events-page/detail/'.$event->id) }}" class="btn btn-block btn-info">Show</a>
                                     </div>
                                 </div>
                             </div>
@@ -131,26 +131,26 @@
         </div>
     </section><!-- End Tabs Section -->
 
-    {{--  <section id="locations" class="locations">
+    <!--  <section id="locations" class="locations">
         <div class="container" data-aos="zoom-in">
             <div class="section-title">
-                <h2>Stakeholder</h2>
-                <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
-            </div>
-            <div id="map" class="map"></div>
+                <h2>Stakeholder</h2>  -->
+                 <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> --> -->
+    <!--        </div>
+            <div id="map" class="map"></div>  -->
             <!-- <iframe src="https://www.google.com/maps/d/u/0/embed?mid=1yWpsj6aBnPLYZCJbYGCOfzUG5MjWI8k&ehbc=2E312F" id="our_location"></iframe> -->
             <!-- <img src="{{ asset('assets/img/map_xl.jpeg') }}"/> -->
-        </div>
-    </section>  --}}
+    <!--    </div>
+    </section>  -->
     <!-- End Clients Section -->
 
     <!-- ======= Tabs Section ======= -->
-    {{--  <section id="tabs" class="tabs">
+    <!--  <section id="tabs" class="tabs">
         <div class="container" data-aos="fade-up">
             <div class="section-title">
-                <h2>Events</h2>
+                <h2>Events</h2> -->
                 <!-- <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea.</p> -->
-            </div>
+    <!--        </div>
             <div id="carouselId" class="carousel carousel-card slide" data-ride="carousel">
                 <ol class="carousel-indicators">
                     <li data-target="#carouselId" data-slide-to="0" class="active"></li>
@@ -167,7 +167,7 @@
                                     <div class="card-body">
                                         <h3>{{$event->title}}</h3>
                                         <p class="fst-italic">
-                                                <?php echo substr($event->detail, 0, 30) . '...'; ?>
+                                                <?php // echo substr($event->detail, 0, 30) . '...'; ?>
                                         </p>
                                         <ul>
                                             <li><i class="ri-time-line"></i> {{$event->date}}.</li>
@@ -178,7 +178,7 @@
                             </div>
         @endforeach
         @endif
-    </section>  --}}
+    </section>  -->
 
     <!-- ======= Clients Section ======= -->
     <!--  <section id="clients" class="clients">
@@ -237,22 +237,22 @@
                         <div class="row">
                             <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="300">
                                 <i class="bx bx-images"></i>
-                                <h4>Discussions</h4>
+                                <h4>Diskusi</h4>
                                 <p>Hubungi stakeholder lain secara langsung melalui Blue Economy</p>
                             </div>
                             <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="400">
                                 <i class="bx bx-shield"></i>
-                                <h4>Events</h4>
-                                <p>Daftar event yang berkaitan dengan ekonomi biru</p>
+                                <h4>Kegiatan</h4>
+                                <p>Daftar kegiatan yang berkaitan dengan ekonomi biru</p>
                             </div>
                             <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="200">
                                 <i class="bx bx-cube-alt"></i>
-                                <h4>Articles</h4>
+                                <h4>Artikel</h4>
                                 <p>Artikel-artikel dari stakeholder terkait ekonomi biru</p>
                             </div>
                             <div class="col-md-6 icon-box" data-aos="fade-up" data-aos-delay="100">
                                 <i class="bx bx-receipt"></i>
-                                <h4>Resource Library</h4>
+                                <h4>Sumber Daya</h4>
                                 <p>Daftar stakeholder ekonomi biru</p>
                             </div>
                         </div>
@@ -322,7 +322,7 @@
                         <h4 class="text-uppercase" style="padding:15px"><b>{{ $article->title }}</b></h4>
                         <p>{!! substr($article->page_text, 0, 150) !!}...</p>
                         <div style="text-align:center">
-                            <a href="{{ url('articles/detail') }}" class="btn btn-block btn-info"
+                            <a href="{{ url('articles/detail/'.$article->id) }}" class="btn btn-block btn-info"
                                style="margin: 10px 0px 0px 0px;">Read more</a>
                         </div>
                     </div>
@@ -369,27 +369,6 @@
                 center: new google.maps.LatLng(-0.789275, 113.921327),
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };
-
-            // Pembuatan petanya
-            var map = new google.maps.Map(document.getElementById('map'), options);
-
-            var marker, i;
-            // proses penambahan marker pada masing-masing lokasi yang berbeda
-            for (i = 0; i < loc.length; i++) {
-                marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(loc[i][1], loc[i][2]),
-                    map: map,
-
-                });
-
-                // Menampilkan informasi pada masing-masing marker yang diklik
-                google.maps.event.addListener(marker, 'click', (function (marker, i) {
-                    return function () {
-                        infowindow.setContent(loc[i][0]);
-                        infowindow.open(map, marker);
-                    }
-                })(marker, i));
-            }
 
             // Pembuatan petanya
             var map2 = new google.maps.Map(document.getElementById('map_resource'), options);
