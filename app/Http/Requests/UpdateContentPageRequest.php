@@ -32,10 +32,7 @@ class UpdateContentPageRequest extends FormRequest
             ],
             'tags' => [
                 'array',
-            ],
-            'publish_status' => [
-                'required',
-            ],
+            ]
         ];
     }
 }

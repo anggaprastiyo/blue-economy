@@ -26,7 +26,6 @@ class UpdateEventRequest extends FormRequest
             ],
             'date' => [
                 'required',
-                'date_format:' . config('panel.date_format') . ' ' . config('panel.time_format'),
             ],
         ];
     }
