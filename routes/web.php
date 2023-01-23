@@ -183,4 +183,5 @@ Route::group(['namespace' => 'Auth', 'middleware' => ['auth', '2fa']], function 
 
 Route::get('/linkstorage', function () {
     Artisan::call('storage:link');
+    Artisan::call('optimize');
 });
