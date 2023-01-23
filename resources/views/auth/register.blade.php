@@ -81,6 +81,18 @@
                             @endif
                             <span class="help-block">{{ trans('cruds.user.fields.instansi_helper') }}</span>
                         </div>
+
+                        <div class="form-group">
+                            <label class="required" for="jabatan">Jabatan</label>
+                            <input class="form-control {{ $errors->has('jabatan') ? 'is-invalid' : '' }}" type="text"
+                                   name="jabatan" id="jabatan" value="{{ old('jabatan', '') }}" required>
+                            @if ($errors->has('jabatan'))
+                                <div class="invalid-feedback">
+                                    {{ $errors->first('jabatan') }}
+                                </div>
+                            @endif
+                        </div>
+
                         <div class="form-group">
                             <label class="required">{{ trans('cruds.user.fields.jenis_instansi') }}</label>
                             @foreach (App\Models\User::JENIS_INSTANSI_RADIO as $key => $label)

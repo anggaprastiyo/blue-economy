@@ -77,7 +77,7 @@
                                             {{ $event->title ?? '' }}
                                         </td>
                                         <td>
-                                            {{ $event->date ?? '' }}
+                                            {{ $event->new_date ?? '' }}
                                         </td>
                                         <td>
                                             @if($event->featured_image)
@@ -169,7 +169,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 let visibleColumnsIndexes = null;
 $('.datatable thead').on('input', '.search', function () {
       let strict = $(this).attr('strict') || false

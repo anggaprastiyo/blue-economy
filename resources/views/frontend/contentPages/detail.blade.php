@@ -51,13 +51,14 @@
                     </div>
 
                     <!-- Leave a comment -->
+                    @if (!is_null($user))
                     <div>
                         <h4 class="f1-l-4 cl3 p-b-12">
-                            Leave a Comment
+                            Tinggalkan Komentar
                         </h4>
 
                         <p class="f1-s-13 cl8 p-b-40">
-                            Your email address will not be published. Required fields are marked *
+                            Alamat email Anda tidak akan dipublikasikan. Bidang yang wajib diisi ditandai *
                         </p>
 
                         <form method="POST" action="{{ route('frontend.comments.store') }}" enctype="multipart/form-data">
@@ -73,7 +74,12 @@
                             </button>
                         </form>
                     </div>
-                    
+                    @else
+                        <h4 class="f1-l-4 cl3 p-b-12">
+                            Silahkan login untuk memberikan komentar
+                        </h4>
+                    @endif
+
                     <!-- Tab panes -->
                     <div class="tab-content p-t-35">
                         <hr>
@@ -148,7 +154,7 @@
                                 <li class="how-bor3 p-rl-4">
                                     <a href="{{ route('frontend.articles.all', ['slug' => $category->slug]) }}"
                                         class="dis-block f1-s-10 text-uppercase cl2 hov-cl10 trans-03 p-tb-13">
-                                        {{ App\Models\ContentPage::MONTH[$archive->month] ?? '' }} {{ $archive->year }} ({{ $archive->count }} ) 
+                                        {{ App\Models\ContentPage::MONTH[$archive->month] ?? '' }} {{ $archive->year }} ({{ $archive->count }} )
                                     </a>
                                 </li>
                             @endforeach

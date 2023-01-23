@@ -44,14 +44,27 @@
                             <span class="help-block">{{ trans('cruds.event.fields.location_helper') }}</span>
                         </div>
                         <div class="form-group">
-                            <label class="required" for="date">{{ trans('cruds.event.fields.date') }}</label>
-                            <input class="form-control datetime" type="text" name="date" id="date" value="{{ old('date', $event->date) }}" required>
-                            @if($errors->has('date'))
-                                <div class="invalid-feedback">
-                                    {{ $errors->first('date') }}
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <label class="required" for="date">Tanggal</label>
+                                    <input class="form-control" type="date" name="date" id="date" value="{{ old('date', $event->new_date) }}" required>
+                                    @if($errors->has('date'))
+                                        <div class="invalid-feedback">
+                                            {{ $errors->first('date') }}
+                                        </div>
+                                    @endif
+                                    <span class="help-block">{{ trans('cruds.event.fields.date_helper') }}</span>
                                 </div>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.event.fields.date_helper') }}</span>
+                                <div class="col-md-6">
+                                    <label class="required" for="time">Jam</label>
+                                    <input class="form-control" type="time" name="time" id="time" value="{{ old('time', $event->time) }}" required>
+                                    @if($errors->has('time'))
+                                        <div class="invalid-feedback">
+                                            {{ $errors->first('time') }}
+                                        </div>
+                                    @endif
+                                </div>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="featured_image">{{ trans('cruds.event.fields.featured_image') }}</label>
@@ -63,21 +76,6 @@
                                 </div>
                             @endif
                             <span class="help-block">{{ trans('cruds.event.fields.featured_image_helper') }}</span>
-                        </div>
-                        <div class="form-group">
-                            <label>{{ trans('cruds.event.fields.publish_status') }}</label>
-                            @foreach(App\Models\Event::PUBLISH_STATUS_RADIO as $key => $label)
-                                <div>
-                                    <input type="radio" id="publish_status_{{ $key }}" name="publish_status" value="{{ $key }}" {{ old('publish_status', $event->publish_status) === (string) $key ? 'checked' : '' }}>
-                                    <label for="publish_status_{{ $key }}">{{ $label }}</label>
-                                </div>
-                            @endforeach
-                            @if($errors->has('publish_status'))
-                                <div class="invalid-feedback">
-                                    {{ $errors->first('publish_status') }}
-                                </div>
-                            @endif
-                            <span class="help-block">{{ trans('cruds.event.fields.publish_status_helper') }}</span>
                         </div>
                         <div class="form-group">
                             <button class="btn btn-danger" type="submit">

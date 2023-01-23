@@ -14,6 +14,7 @@ use App\Models\ResourceLibrary;
 use App\Repositories\ContentPageRepository;
 use App\Models\Event;
 use App\Models\User;
+use Carbon\Carbon;
 use Gate;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -28,6 +29,10 @@ class EventController extends Controller
         abort_if(Gate::denies('event_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $events = Event::with(['created_by', 'media'])->get();
+        $events->transform(function ($item) {
+            $item->new_date = date('l, d Y | H:i', strtotime($item->date));
+            return $item;
+        });
 
         $users = User::get();
 
@@ -42,7 +47,7 @@ class EventController extends Controller
             ->get();
         return view('frontend.events.detail')->with(compact('events', 'contentCategories', 'article'));
     }
-    
+
     public function all()
     {
         $events = Event::with(['created_by', 'media'])->simplePaginate(10);
@@ -74,6 +79,7 @@ class EventController extends Controller
 
     public function store(StoreEventRequest $request)
     {
+        $request->merge(['publish_status'=> 0, 'date' => $request->date.' '.$request->time.':00']);
         $event = Event::create($request->all());
 
         if ($request->input('featured_image', false)) {
@@ -92,12 +98,16 @@ class EventController extends Controller
         abort_if(Gate::denies('event_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $event->load('created_by');
+        $datetime = Carbon::parse($event->date);
+        $event->new_date = $datetime->format('Y-m-d');
+        $event->time = $datetime->format('H:i');
 
         return view('frontend.events.edit', compact('event'));
     }
 
     public function update(UpdateEventRequest $request, Event $event)
     {
+        $request->merge(['date' => $request->date.' '.$request->time.':00']);
         $event->update($request->all());
 
         if ($request->input('featured_image', false)) {

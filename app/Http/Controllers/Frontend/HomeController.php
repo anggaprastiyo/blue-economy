@@ -23,10 +23,10 @@ class HomeController
             ->get();
 
         $resources = ResourceLibrary::where('type', 1)->get();
-        // dd($resource);
         $sliders = BannerSlider::where('publish_status', config('constant.general_publish_status.published'))
-        ->orderBy('created_at', 'DESC')
-        ->get();
+            ->orderBy('created_at', 'DESC')
+            ->get();
+
         $contentCategories = ContentCategory::get()->whereNotIn('slug', ['about', 'regulation']);
 
         return view('frontend.home', compact('events', 'articles', 'sliders', 'contentCategories', 'resources'));

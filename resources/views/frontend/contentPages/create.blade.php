@@ -250,4 +250,12 @@
             }
         }
     </script>
+
+    <script>
+        // In your Javascript (external .js resource or <script> tag)
+        $(document).ready(function() {
+            $('#categories').select2();
+            $('#tags').select2();
+        });
+    </script>
 @endsection

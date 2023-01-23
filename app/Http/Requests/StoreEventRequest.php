@@ -25,8 +25,7 @@ class StoreEventRequest extends FormRequest
                 'required',
             ],
             'date' => [
-                'required',
-                'date_format:' . config('panel.date_format') . ' ' . config('panel.time_format'),
+                'required'
             ],
         ];
     }
