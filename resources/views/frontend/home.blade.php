@@ -277,7 +277,7 @@
         </div>
     </section><!-- End Clients Section -->
 
-    
+
 
     <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio">
@@ -287,49 +287,77 @@
                 <h2>Articles</h2>
             </div>
 
-            <div class="row" data-aos="fade-up" data-aos-delay="100">
-                <div class="col-lg-12 d-flex justify-content-center">
-                    <ul id="portfolio-flters">
-                        @foreach ($contentCategories as $category)
-                            <li>
-                                <a href="{{ route('frontend.articles.all', ['slug' => $category->slug]) }}">{{ $category->name }}</a>
-                            </li>
-                        @endforeach
-                        <li style="background:#fff"><a href="{{ url('articles/all') }}" style="color:#444;">Show
-                                More</a></li>
-                    </ul>
-                </div>
+{{--            <div class="row" data-aos="fade-up" data-aos-delay="100">--}}
+{{--                <div class="col-lg-12 d-flex justify-content-center">--}}
+{{--                    <ul id="portfolio-flters">--}}
+{{--                        @foreach ($contentCategories as $category)--}}
+{{--                            <li>--}}
+{{--                                <a href="{{ route('frontend.articles.all', ['slug' => $category->slug]) }}">{{ $category->name }}</a>--}}
+{{--                            </li>--}}
+{{--                        @endforeach--}}
+{{--                        <li style="background:#fff"><a href="{{ url('articles/all') }}" style="color:#444;">Show--}}
+{{--                                More</a></li>--}}
+{{--                    </ul>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+
+            <div class="row">
+                <ul id="portfolio-flters">
+                    @foreach ($contentCategories as $category)
+                        <li>
+                            <a href="{{ route('frontend.articles.all', ['slug' => $category->slug]) }}">{{ $category->name }}</a>
+                        </li>
+                    @endforeach
+                    <li style="background:#fff"><a href="{{ url('articles/all') }}" style="color:#444;">Show More</a></li>
+                </ul>
             </div>
 
-            <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
-
+            <div class="row">
                 @foreach ($articles as $article)
-                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">
-                        <div class="portfolio-wrap">
-                            <img src="{{ $article->getFeaturedImageAttribute()->url }}" class="img-fluid" alt=""
-                                 style="height:200px; width:100%">
-                            <div class="portfolio-info">
-                                <h4>{{ substr($article->title, 0, 30) }}</h4>
-                                <p>{!! substr($article->page_text, 0, 150) !!}</p>
-                                <div class="portfolio-links">
-                                    <a href="{{ $article->getFeaturedImageAttribute()->url }}"
-                                       data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i
-                                            class="bx bx-plus"></i></a>
-                                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>
-                                </div>
-                            </div>
+                <div class="col-md-4 mb-5">
+                    <div class="card">
+                        <img class="card-img-top"  style="height:200px; width:100%" src="{{ !is_null($article->getFeaturedImageAttribute()) ? $article->getFeaturedImageAttribute()->url : '' }}" alt="Card image cap">
+                        <div class="card-body">
+                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
                         </div>
-                        <h4 class="text-uppercase" style="padding:15px"><b>{{ $article->title }}</b></h4>
-                        <p>{!! substr($article->page_text, 0, 150) !!}...</p>
-                        <div style="text-align:center">
+                        <div class="card-footer">
                             <a href="{{ url('articles/detail/'.$article->id) }}" class="btn btn-block btn-info"
                                style="margin: 10px 0px 0px 0px;">Read more</a>
                         </div>
                     </div>
+                </div>
                 @endforeach
-
-
             </div>
+
+{{--            <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">--}}
+
+{{--                @foreach ($articles as $article)--}}
+{{--                    <div class="col-lg-4 col-md-6 portfolio-item filter-app">--}}
+{{--                        <div class="portfolio-wrap">--}}
+{{--                            <img src="{{ !is_null($article->getFeaturedImageAttribute()) ? $article->getFeaturedImageAttribute()->url : '' }}" class="img-fluid" alt=""--}}
+{{--                                 style="height:200px; width:100%">--}}
+{{--                            <div class="portfolio-info">--}}
+{{--                                <h4>{{ substr($article->title, 0, 30) }}</h4>--}}
+{{--                                <p>{!! substr($article->page_text, 0, 150) !!}</p>--}}
+{{--                                <div class="portfolio-links">--}}
+{{--                                    <a href="{{ !is_null($article->getFeaturedImageAttribute()) ? $article->getFeaturedImageAttribute()->url : '' }}"--}}
+{{--                                       data-gallery="portfolioGallery" class="portfolio-lightbox" title="App 1"><i--}}
+{{--                                            class="bx bx-plus"></i></a>--}}
+{{--                                    <a href="portfolio-details.html" title="More Details"><i class="bx bx-link"></i></a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                        <h4 class="text-uppercase" style="padding:15px"><b>{{ $article->title }}</b></h4>--}}
+{{--                        <p>{!! substr($article->page_text, 0, 150) !!}...</p>--}}
+{{--                        <div style="text-align:center">--}}
+{{--                            <a href="{{ url('articles/detail/'.$article->id) }}" class="btn btn-block btn-info"--}}
+{{--                               style="margin: 10px 0px 0px 0px;">Read more</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                @endforeach--}}
+
+
+{{--            </div>--}}
 
         </div>
     </section><!-- End Portfolio Section -->
